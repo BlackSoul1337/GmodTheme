@@ -191,6 +191,8 @@
 	height: 28px;
 	cursor: pointer;
 	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 .controls LI.active
@@ -205,21 +207,27 @@
 	left: 12px;
 	top: 8px;
 	bottom: 0;
-	right: 32px;
+	right: 42px;
 	overflow: hidden;
 	white-space: nowrap;
+	text-overflow: ellipsis;
+	line-height: 12px;
 }
 
 .controls LI.category .count
 {
-	padding: 8px;
-	padding-right: 12px;
-	float: right;
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	width: 24px;
+	padding: 0;
 	background-color: transparent;
 	color: #58A6FF;
 	font-size: 10px;
 	overflow: hidden;
 	white-space: nowrap;
+	text-align: right;
+	line-height: 12px;
 }
 
 gamesettings {
