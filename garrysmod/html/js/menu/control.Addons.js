@@ -228,8 +228,8 @@ function ControllerAddons( $scope, $element, $rootScope, $location )
 	}
 	$scope.ToggleSelect = function( file, event )
 	{
-		var en = event.target.nodeName.toLowerCase();
-		if ( en != "controls" && en != "description" && en != "workshopicon" ) return;
+		if ( $scope.Category != "subscribed" || !file || !file.id || ( file.info && file.info.floating ) ) return;
+		if ( event && $( event.target ).closest( "control, input, a, label" ).length > 0 ) return;
 
 		$scope.SelectedItems[file.id] = !$scope.SelectedItems[file.id];
 		if ( event ) event.stopPropagation();
@@ -488,6 +488,7 @@ function ControllerAddons( $scope, $element, $rootScope, $location )
 			if ( subscriptions.GetInvalidReason( file.id ) ) classes.push( "invalid" );
 		}
 
+		if ( $scope.SelectedItems[ file.id ] ) classes.push( "selected" );
 		if ( file.info && file.info.floating ) classes.push( "floating" );
 
 		return classes.join( " " );

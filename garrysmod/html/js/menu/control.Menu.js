@@ -18,12 +18,72 @@ function MenuController( $scope, $rootScope )
 	$scope.Version = "0";
 	$scope.ProblemCount = 0;
 	$scope.ProblemSeverity = 0;
+	$scope.UIScale = 1;
 
 	subscriptions.Init( $scope );
 
 	gScope = $scope;
 
 	gScope.Gamemode = "";
+
+	var uiScaleStorageKey = "blacksoul_menu_ui_scale";
+
+	function ClampUIScale( value )
+	{
+		value = parseFloat( value );
+		if ( isNaN( value ) ) value = 1;
+		if ( value < 0.75 ) value = 0.75;
+		if ( value > 1.35 ) value = 1.35;
+
+		return Math.round( value * 100 ) / 100;
+	}
+
+	$scope.ApplyUIScale = function()
+	{
+		$scope.UIScale = ClampUIScale( $scope.UIScale );
+		document.body.style.webkitTransformOrigin = "0 0";
+		document.body.style.webkitTransform = "scale(" + $scope.UIScale + ")";
+		document.body.style.width = ( 100 / $scope.UIScale ) + "%";
+		document.body.style.height = ( 100 / $scope.UIScale ) + "%";
+	}
+
+	$scope.SetUIScale = function( value )
+	{
+		$scope.UIScale = ClampUIScale( value );
+		$scope.ApplyUIScale();
+
+		try
+		{
+			localStorage.setItem( uiScaleStorageKey, String( $scope.UIScale ) );
+		}
+		catch ( e ) {}
+	}
+
+	$scope.ChangeUIScale = function( delta )
+	{
+		$scope.SetUIScale( $scope.UIScale + delta );
+	}
+
+	$scope.ResetUIScale = function()
+	{
+		$scope.SetUIScale( 1 );
+	}
+
+	$scope.GetUIScalePercent = function()
+	{
+		return Math.round( $scope.UIScale * 100 ) + "%";
+	}
+
+	try
+	{
+		$scope.UIScale = ClampUIScale( localStorage.getItem( uiScaleStorageKey ) || 1 );
+	}
+	catch ( e ) {}
+
+	setTimeout( function()
+	{
+		$scope.ApplyUIScale();
+	}, 0 );
 
 	$scope.ToggleGamemodes = function()
 	{
@@ -358,6 +418,8 @@ var gmodInteractiveSoundSelector = [
 	"div.centermessage a",
 	"div.centermessage .button",
 	"control",
+	"workshopicon",
+	".ui-scale-setting button",
 	".news_buttons div",
 	"label[for]"
 ].join( ", " );

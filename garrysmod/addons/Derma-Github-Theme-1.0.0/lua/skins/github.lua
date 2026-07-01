@@ -2,7 +2,14 @@
 local surface = surface;
 local Color = Color;
 
+local function ShouldSkipGithubDerma()
+	local gamemode = engine.ActiveGamemode and engine.ActiveGamemode();
+
+	return gamemode == "helix" or gamemode == "ixhl2rp";
+end
+
 hook.Add("SpawnMenuCreated", "Derma.Github.Fonts", function()
+	if (ShouldSkipGithubDerma()) then return; end
 
 	surface.CreateFont("DermaDefault", {
 		font      = "Segoe UI",
@@ -1139,5 +1146,7 @@ end
 derma.DefineSkin("Github", "Made to look like Github GUI", SKIN);
 derma.RefreshSkins();
 hook.Add("ForceDermaSkin", "Derma.Github.Override", function()
+	if (ShouldSkipGithubDerma()) then return; end
+
 	return "Github";
 end);

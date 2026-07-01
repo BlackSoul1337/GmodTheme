@@ -49,21 +49,21 @@
 			<workshopmessage ng-show="( TotalResults == 0 || NumResults == 0 ) && !Loading && ( !Disabled || Category != 'subscribed' )" ng-Localize="'addons.none'">...</workshopmessage>
 			<workshopmessage ng-show="TotalResults == 0 && !Loading && Disabled && Category == 'subscribed'" ng-Localize="'addons.disabled'">...</workshopmessage>
 
-			<workshopicon ng-hide="Loading" ng-repeat="file in Files" style="width: {{IconWidth|number:0}}px; height: {{IconHeight|number:0}}px" class="{{GetAddonClasses( file )}}">
+			<workshopicon ng-hide="Loading" ng-repeat="file in Files" ng-click="ToggleSelect( file, $event )" style="width: {{IconWidth|number:0}}px; height: {{IconHeight|number:0}}px" class="{{GetAddonClasses( file )}}">
 
 				<preview style="background-image: url('../{{file.background || 'img/downloading.png'}}'); background-size: 100% 100%;">
 					<disabled></disabled>
 				</preview>
 
 				<name class="{{IfElse( Category == 'subscribed', 'subscription', '' )}}">
-					<label ng-click="OpenWorkshopFile( file.id )">{{file.extra.title || file.info.title || "Loading..."}}</label>
+					<label ng-click="OpenWorkshopFile( file.id ); $event.stopPropagation();">{{file.extra.title || file.info.title || "Loading..."}}</label>
 				</name>
 				<author ng-hide="file.local">{{file.info.ownername || "Loading..."}}</author>
 				<size ng-hide="!file.info.size">{{GetNiceSize( file.info.size )}}</size>
 				<votes ng-show="!file.local && (file.info.up-file.info.down) > 0" >+{{file.info.up-file.info.down|number:0}}</votes>
 				<votes ng-show="!file.local && (file.info.up-file.info.down) < 0" class="negative">{{file.info.up-file.info.down|number:0}}</votes>
-				<description ng-click="OpenWorkshopFile( file.id )">{{GetAddonDescription( file )}}</description>
-				<input type="checkbox" class="checkbox" ng-show="(Category == 'subscribed') && !file.info.floating" ng-model="SelectedItems[ file.id ]" />
+				<description ng-click="OpenWorkshopFile( file.id ); $event.stopPropagation();">{{GetAddonDescription( file )}}</description>
+				<input type="checkbox" class="checkbox" ng-show="(Category == 'subscribed') && !file.info.floating" ng-model="SelectedItems[ file.id ]" ng-click="$event.stopPropagation();" />
 
 				<controls ng-show="!file.info.floating">
 					<left>
@@ -117,6 +117,7 @@
 			</div>
 			<div class="ugc_settings_cat"><!--<span>Selection:</span>-->
 				<div ng-show="!IsAnySelected()">
+					<a ng-click="SelectAllPage()" ng-Localize="'addons.selectpage'"></a>
 					<a ng-click="SelectAll()" ng-Localize="'addons.selectall'"></a>
 					<a ng-click="DisplayPopupMessage( 'addons.enableall.warning', EnableAllSubscribed )" ng-Localize="'addons.enableall'"></a>
 					<a ng-click="DisplayPopupMessage( 'addons.disableall.warning', DisableAllSubscribed )" ng-Localize="'addons.disableall'"></a>

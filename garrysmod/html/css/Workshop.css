@@ -175,6 +175,7 @@ workshopicon description
 	cursor: default;
 	word-break: break-all;
 	border-radius: 6px;
+	pointer-events: none;
 
 	opacity: 0;
 	-webkit-transition: opacity 100ms ease-in 0ms;
