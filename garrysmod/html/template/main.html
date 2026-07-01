@@ -18,15 +18,6 @@
 			<a ng-click="MenuOption( this, 'Disconnect');" ng-Localize="'disconnect'"></a>
 		</li>
 		<li><a ng-click="MenuOption( this, 'Quit')" ng-Localize="'quit'"></a></li>
-
-		<li>&nbsp;</li>
-		<li class="ui-scale-setting">
-			<span>UI scale</span>
-			<button ng-click="ChangeUIScale( -0.05 )">-</button>
-			<strong>{{GetUIScalePercent()}}</strong>
-			<button ng-click="ChangeUIScale( 0.05 )">+</button>
-			<button ng-click="ResetUIScale()">reset</button>
-		</li>
 	</ul>
 
 	<div class="news" ng-hide="NewsList.length == 0">

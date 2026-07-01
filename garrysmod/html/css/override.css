@@ -56,49 +56,6 @@
 	text-shadow: 0 0 14px rgba( 88, 166, 255, 0.28 );
 }
 
-.ui-scale-setting {
-	margin-top: 8px;
-	color: rgba(255, 255, 255, 0.72);
-	font-size: 13px;
-	font-weight: 700;
-	letter-spacing: 0.4px;
-}
-
-.ui-scale-setting span {
-	display: block;
-	margin-bottom: 7px;
-	text-transform: uppercase;
-}
-
-.ui-scale-setting strong {
-	display: inline-block;
-	min-width: 42px;
-	text-align: center;
-	color: #F0F6FC;
-	font-size: 14px;
-}
-
-.ui-scale-setting button {
-	background: rgba( 22, 27, 34, 0.86 );
-	border: 1px solid #30363D;
-	border-radius: 5px;
-	color: #C9D1D9;
-	cursor: pointer;
-	font-family: 'Mona-Sans', 'Segoe UI', Arial, sans-serif;
-	font-size: 12px;
-	font-weight: 800;
-	height: 25px;
-	margin-right: 5px;
-	padding: 0 9px;
-	-webkit-transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
-}
-
-.ui-scale-setting button:hover {
-	background: #30363D;
-	border-color: #58A6FF;
-	color: #FFFFFF;
-}
-
 .button, .button span, .button a {
 	background: transparent !important;
 	color: white !important;
@@ -149,6 +106,56 @@
 #NavBar {
 	background-color: #161B22;
 	border-top: 1px solid #30363D;
+}
+
+#NavBar .ui-scale-nav {
+	float: right;
+	height: 40px;
+	margin: 5px 0 0 5px;
+	padding: 0 8px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+#NavBar .ui-scale-nav button {
+	background: #21262D;
+	border: 1px solid #30363D;
+	border-radius: 4px;
+	color: #C9D1D9;
+	cursor: pointer;
+	font-size: 11px !important;
+	font-weight: bold;
+	height: 26px;
+	line-height: 24px;
+	margin-top: 7px;
+	padding: 0;
+	width: 24px;
+	-webkit-transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+#NavBar .ui-scale-nav span {
+	color: #F0F6FC;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 11px !important;
+	font-weight: bold;
+	height: 26px;
+	line-height: 26px;
+	min-width: 42px;
+	margin-top: 7px;
+	padding: 0 5px;
+	position: relative;
+	top: 0;
+	vertical-align: top;
+}
+
+#NavBar .ui-scale-nav button:hover, #NavBar .ui-scale-nav span:hover {
+	color: #FFFFFF;
+}
+
+#NavBar .ui-scale-nav button:hover {
+	background: #30363D;
+	border-color: #58A6FF;
 }
 
 .gitpopup
@@ -475,27 +482,92 @@ input[type=checkbox]:disabled + label::before {
 	background-color: #0D1117;
 }
 
+.ugc_settings input[type=checkbox],
+.ugc_settings input[type=radio],
+.centermessage input[type=checkbox],
+.centermessage input[type=radio]
+{
+	-webkit-appearance: none;
+	background: #0D1117;
+	border: 1px solid #6E7681;
+	box-sizing: border-box;
+	height: 13px;
+	margin: 0 6px 0 0;
+	opacity: 1;
+	pointer-events: auto;
+	position: relative;
+	top: 2px;
+	width: 13px;
+}
+
+.ugc_settings input[type=radio],
+.centermessage input[type=radio]
+{
+	border-radius: 50%;
+}
+
+.ugc_settings input[type=checkbox] + label::before,
+.centermessage input[type=checkbox] + label::before
+{
+	display: none;
+}
+
+.ugc_settings input[type=checkbox]:checked,
+.ugc_settings input[type=radio]:checked,
+.centermessage input[type=checkbox]:checked,
+.centermessage input[type=radio]:checked
+{
+	background: #1F6FEB;
+	border-color: #58A6FF;
+}
+
+.ugc_settings input[type=checkbox]:checked:after,
+.centermessage input[type=checkbox]:checked:after
+{
+	content: '\2713';
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: 900;
+	left: 1px;
+	line-height: 11px;
+	position: absolute;
+	top: 0;
+}
+
+.ugc_settings input[type=radio]:checked:after,
+.centermessage input[type=radio]:checked:after
+{
+	content: '';
+	background: #FFFFFF;
+	border-radius: 50%;
+	height: 5px;
+	left: 3px;
+	position: absolute;
+	top: 3px;
+	width: 5px;
+}
+
 workshopicon.selected
 {
 	border-color: #58A6FF;
-	box-shadow: 0 0 0 2px rgba( 88, 166, 255, 0.45 ), 0 10px 26px rgba( 0, 0, 0, 0.34 );
+	box-shadow: 0 0 0 2px rgba( 88, 166, 255, 0.38 ), 0 10px 26px rgba( 0, 0, 0, 0.34 );
+}
+
+workshopicon.selected:before
+{
+	content: none;
 }
 
 workshopicon.selected:after
 {
-	content: '\2713';
+	content: '';
 	position: absolute;
-	top: 27px;
-	right: 7px;
-	width: 24px;
-	height: 24px;
-	line-height: 24px;
-	border-radius: 50%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 4px;
+	border-radius: 6px 0 0 6px;
 	background-color: #1F6FEB;
-	color: #FFFFFF;
-	font-size: 16px;
-	font-weight: 900;
-	text-align: center;
 	z-index: 6;
 	pointer-events: none;
 }

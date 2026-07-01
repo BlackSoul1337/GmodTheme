@@ -65,11 +65,13 @@
 				<description ng-click="OpenWorkshopFile( file.id ); $event.stopPropagation();">{{GetAddonDescription( file )}}</description>
 				<input type="checkbox" class="checkbox" ng-show="(Category == 'subscribed') && !file.info.floating" ng-model="SelectedItems[ file.id ]" ng-click="$event.stopPropagation();" />
 
-				<controls ng-show="!file.info.floating">
+				<controls ng-show="!file.info.floating" ng-click="$event.stopPropagation();">
 					<left>
 						<control ng-show="file.local" ng-click="PublishLocal( file )" ng-Localize="'demos.publish'">..</control>
 						<control ng-show="file.local" ng-click="DeleteLocal( file )" ng-Localize="'demos.delete'">..</control>
 					</left>
+
+					<selectionmark ng-show="SelectedItems[ file.id ]"></selectionmark>
 
 					<right>
 						<control ng-show="IsSubscribed( file ) && IsEnabled( file )" ng-click="Disable( file )" ng-Localize="'addon.disable'">..</control>

@@ -234,9 +234,50 @@ controls
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: end;
 	padding: 3px;
 	margin: 6px 5px;
 	overflow: display;
+	z-index: 22;
+}
+
+controls left
+{
+	display: block;
+	-webkit-box-flex: 1;
+	min-width: 0;
+}
+
+controls right
+{
+	display: block;
+	float: none;
+	white-space: nowrap;
+}
+
+controls selectionmark
+{
+	display: block;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	margin-right: 6px;
+	border: 1px solid rgba( 255, 255, 255, 0.62 );
+	border-radius: 4px;
+	background-color: #1F6FEB;
+	box-shadow: 0 2px 7px rgba( 0, 0, 0, 0.32 );
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: 900;
+	text-align: center;
+	pointer-events: none;
+}
+
+controls selectionmark:before
+{
+	content: '\2713';
 }
 
 controls control
@@ -276,7 +317,10 @@ controls control IMG
 	width: 100%;
 
 	padding: 10px;
-	background: #eee;
+	background: #161B22;
+	border-top: 1px solid #30363D;
+	box-shadow: 0 -14px 30px rgba( 0, 0, 0, 0.32 );
+	color: #C9D1D9;
 
 	position: absolute;
 	bottom: 63px;
@@ -294,28 +338,34 @@ controls control IMG
 .ugc_settings span
 {
 	display: block;
+	color: #C9D1D9;
+	font-weight: 700;
 }
 .ugc_settings label
 {
 	position: relative;
 	top: -2px;
+	color: #C9D1D9;
 }
 
 .ugc_settings a
 {
-	color: #000;
+	color: #C9D1D9;
 	padding: 4px 15px;
-	background: #ddd;
+	background: #21262D;
+	border: 1px solid #30363D;
 	display: block;
 	margin-top: 2px;
 	text-align: center;
 	border-radius: 4px;
 	cursor: default;
+	font-weight: 700;
 }
 .ugc_settings a:hover
 {
-	colo2r: #ff7;
-	background: #ccc;
+	color: #FFFFFF;
+	background: #30363D;
+	border-color: #58A6FF;
 }
 
 .ugc_settings_cat
@@ -324,6 +374,63 @@ controls control IMG
 	display: inline-block;
 	padding: 0px 1%;
 	margin: 0 auto;
+}
+
+.ugc_settings input[type=checkbox],
+.ugc_settings input[type=radio],
+.centermessage input[type=checkbox],
+.centermessage input[type=radio]
+{
+	-webkit-appearance: none;
+	background: #0D1117;
+	border: 1px solid #6E7681;
+	box-sizing: border-box;
+	height: 13px;
+	margin: 0 6px 0 0;
+	position: relative;
+	top: 2px;
+	width: 13px;
+}
+
+.ugc_settings input[type=radio],
+.centermessage input[type=radio]
+{
+	border-radius: 50%;
+}
+
+.ugc_settings input[type=checkbox]:checked,
+.ugc_settings input[type=radio]:checked,
+.centermessage input[type=checkbox]:checked,
+.centermessage input[type=radio]:checked
+{
+	background: #1F6FEB;
+	border-color: #58A6FF;
+}
+
+.ugc_settings input[type=checkbox]:checked:after,
+.centermessage input[type=checkbox]:checked:after
+{
+	content: '\2713';
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: 900;
+	left: 1px;
+	line-height: 11px;
+	position: absolute;
+	top: 0;
+}
+
+.ugc_settings input[type=radio]:checked:after,
+.centermessage input[type=radio]:checked:after
+{
+	content: '';
+	background: #FFFFFF;
+	border-radius: 50%;
+	height: 5px;
+	left: 3px;
+	position: absolute;
+	top: 3px;
+	width: 5px;
 }
 
 .create_preset
@@ -338,7 +445,9 @@ controls control IMG
 }
 .preset_list
 {
-	background: #eee;
+	background: #0D1117;
+	border: 1px solid #30363D;
+	border-radius: 5px;
 	width: 150px;
 	display: inline-block;
 	max-height: 400px;
@@ -351,14 +460,16 @@ controls control IMG
 	display: block;
 	padding: 5px;
 	cursor: default;
+	color: #C9D1D9;
 }
 .preset_list font:hover
 {
-	background: #ddd;
+	background: #21262D;
 }
 .preset_list font.active
 {
-	background: #ccc;
+	background: #30363D;
+	color: #FFFFFF;
 }
 .preset_data
 {
@@ -367,6 +478,7 @@ controls control IMG
 	display: inline-block;
 	vertical-align: top;
 	cursor: default;
+	color: #C9D1D9;
 }
 
 pagination

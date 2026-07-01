@@ -419,7 +419,8 @@ var gmodInteractiveSoundSelector = [
 	"div.centermessage .button",
 	"control",
 	"workshopicon",
-	".ui-scale-setting button",
+	".ui-scale-nav button",
+	".ui-scale-nav span",
 	".news_buttons div",
 	"label[for]"
 ].join( ", " );
