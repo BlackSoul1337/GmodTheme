@@ -109,7 +109,15 @@
 }
 
 .theme-settings-toggle svg {
-	margin-top: 9px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -11px 0 0 -11px;
+}
+
+#NavBar .button:active {
+	-webkit-transform: scale(0.94);
+	opacity: 0.85;
 }
 
 .theme-settings {
@@ -335,7 +343,7 @@ UL.category LI:first-child {
 }
 
 UL.category LI:first-child small {
-	color: #A371F7;
+	color: #58A6FF;
 }
 
 UL.category LI.mapicon IMG

@@ -55,7 +55,7 @@ DIV.page DIV.options UL.submenu LI
 
 DIV.page DIV.options A:hover
 {
-	color: #A371F7;
+	color: #B0BBBD;
 }
 
 DIV.page DIV.options.active, DIV.page DIV.options A.active
@@ -101,7 +101,7 @@ div.ugc_content
 
 	DIV.page DIV.innerpage
 	{
-		left: 250px;
+		left: 292px;
 	}
 
 	DIV.page DIV.options, DIV.page DIV.options A

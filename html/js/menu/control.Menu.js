@@ -12,6 +12,16 @@ var MapIndex = {}
 
 var subscriptions = new Subscriptions();
 
+function ClampUIScale( value )
+{
+	value = parseFloat( value );
+	if ( isNaN( value ) ) value = 1;
+	if ( value < 0.75 ) value = 0.75;
+	if ( value > 1.35 ) value = 1.35;
+
+	return Math.round( value * 100 ) / 100;
+}
+
 function MenuController( $scope, $rootScope )
 {
 	$rootScope.ShowBack = false;
@@ -19,7 +29,6 @@ function MenuController( $scope, $rootScope )
 	$scope.ProblemCount = 0;
 	$scope.ProblemSeverity = 0;
 	$scope.UIScale = 1;
-	$scope.ThemeSettingsOpen = false;
 	$scope.ThemeAllGamemodes = false;
 
 	subscriptions.Init( $scope );
@@ -27,18 +36,6 @@ function MenuController( $scope, $rootScope )
 	gScope = $scope;
 
 	gScope.Gamemode = "";
-
-	var uiScaleStorageKey = "blacksoul_menu_ui_scale";
-
-	function ClampUIScale( value )
-	{
-		value = parseFloat( value );
-		if ( isNaN( value ) ) value = 1;
-		if ( value < 0.75 ) value = 0.75;
-		if ( value > 1.35 ) value = 1.35;
-
-		return Math.round( value * 100 ) / 100;
-	}
 
 	$scope.ApplyUIScale = function()
 	{
@@ -66,11 +63,9 @@ function MenuController( $scope, $rootScope )
 		$scope.UIScale = ClampUIScale( value );
 		$scope.ApplyUIScale();
 
-		try
-		{
-			localStorage.setItem( uiScaleStorageKey, String( $scope.UIScale ) );
-		}
-		catch ( e ) {}
+		// Persist to data/ immediately (survives unclean shutdowns, unlike the
+		// cookie store which flushes on exit).
+		lua.Run( 'file.Write( "blacksoul_menu_ui_scale.txt", %s )', String( $scope.UIScale ) );
 	}
 
 	$scope.ChangeUIScale = function( delta )
@@ -91,53 +86,46 @@ function MenuController( $scope, $rootScope )
 	$scope.ToggleThemeSettings = function()
 	{
 		$( ".popup, .gitpopup" ).not( ".theme-settings" ).hide();
-		$scope.ThemeSettingsOpen = !$scope.ThemeSettingsOpen;
+		$( ".theme-settings" ).toggle();
 	}
 
 	// The menu state has no addon Lua, so the cookie store is the persistence
 	// layer and the current value is pulled back through the menu panel.
 	$scope.SetThemeAllGamemodes = function()
 	{
-		lua.Run( 'cookie.Set( "blacksoul_theme_all_gamemodes", %s )', $scope.ThemeAllGamemodes ? "1" : "0" );
+		// file.Write lands in data/ immediately and is visible to the client
+		// realm in the same session; menu-state cookies are not.
+		lua.Run( 'file.Write( "blacksoul_theme_all_gamemodes.txt", %s )', $scope.ThemeAllGamemodes ? "1" : "0" );
 	}
-
-	try
-	{
-		$scope.UIScale = ClampUIScale( localStorage.getItem( uiScaleStorageKey ) || 1 );
-	}
-	catch ( e ) {}
 
 	setTimeout( function()
 	{
 		$scope.ApplyUIScale();
-		lua.Run( 'pnlMainMenu:Call( "UpdateThemeAllGamemodes( " .. tostring( cookie.GetString( "blacksoul_theme_all_gamemodes", "0" ) == "1" ) .. " )" )' );
+		lua.Run( 'pnlMainMenu:Call( "UpdateUIScale( " .. ( file.Read( "blacksoul_menu_ui_scale.txt", "DATA" ) or cookie.GetString( "blacksoul_menu_ui_scale", "1" ) ) .. " )" )' );
+		lua.Run( 'pnlMainMenu:Call( "UpdateThemeAllGamemodes( " .. tostring( ( file.Read( "blacksoul_theme_all_gamemodes.txt", "DATA" ) or cookie.GetString( "blacksoul_theme_all_gamemodes", "0" ) ) == "1" ) .. " )" )' );
 	}, 0 );
 
 	$scope.ToggleGamemodes = function()
 	{
-		$scope.ThemeSettingsOpen = false;
-		$( ".popup:not(.gamemode_list)" ).hide();
+		$( ".popup, .gitpopup" ).not( ".gamemode_list" ).hide();
 		$( ".gamemode_list" ).toggle();
 	}
 
 	$scope.ToggleLanguage = function()
 	{
-		$scope.ThemeSettingsOpen = false;
-		$( ".popup:not(.language_list)" ).hide();
+		$( ".popup, .gitpopup" ).not( ".language_list" ).hide();
 		$( ".language_list" ).toggle();
 	}
 
 	$scope.ToggleGames = function()
 	{
-		$scope.ThemeSettingsOpen = false;
-		$( ".popup:not(.games_list)" ).hide();
+		$( ".popup, .gitpopup" ).not( ".games_list" ).hide();
 		$( ".games_list" ).toggle();
 	}
 
 	$scope.TogglePopup = function( name )
 	{
-		$scope.ThemeSettingsOpen = false;
-		$( ".popup:not("+name+")" ).hide();
+		$( ".popup, .gitpopup" ).not( name ).hide();
 		$( name ).toggle();
 	}
 
@@ -432,6 +420,15 @@ function SetProblemCount( num, severity )
 function UpdateThemeAllGamemodes( bEnabled )
 {
 	gScope.ThemeAllGamemodes = bEnabled == true || bEnabled == "true";
+	UpdateDigest( gScope, 50 );
+}
+
+// Pulled from the cookie store via Lua (pnlMainMenu:Call) so the saved scale
+// survives restarts even when the menu browser keeps no localStorage.
+function UpdateUIScale( value )
+{
+	gScope.UIScale = ClampUIScale( value );
+	gScope.ApplyUIScale();
 	UpdateDigest( gScope, 50 );
 }
 

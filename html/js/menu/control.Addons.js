@@ -344,6 +344,9 @@ function ControllerAddons( $scope, $element, $rootScope, $location )
 
 	$scope.OpenLoadPresetMenu = function()
 	{
+		// Reset to defaults..
+		$scope.CreatePresetNewAct = "disable";
+
 		lua.Run( "ListAddonPresets()" );
 		$scope.LoadPresetMenuOpen = true;
 		$scope.LoadPresetResub = false;

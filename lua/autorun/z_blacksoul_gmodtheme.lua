@@ -10,7 +10,11 @@ if (!GetConVar("blacksoul_theme_all_gamemodes")) then
 	CreateClientConVar("blacksoul_theme_all_gamemodes", "0", false, false, "Apply the BlackSoul Derma theme to Helix and other excluded gamemodes.")
 end
 
-RunConsoleCommand("blacksoul_theme_all_gamemodes", cookie.GetString("blacksoul_theme_all_gamemodes", "0"))
+-- The menu HTML persists the setting to data/ (visible across realms in the
+-- same session); the cookie is kept as a legacy fallback.
+local themeAllGamemodes = file.Read("blacksoul_theme_all_gamemodes.txt", "DATA") or cookie.GetString("blacksoul_theme_all_gamemodes", "0")
+
+RunConsoleCommand("blacksoul_theme_all_gamemodes", themeAllGamemodes)
 
 -- The legacy standalone Derma package registers its hooks when its skin loads,
 -- which happens after this autorun. Remove them again once everything is loaded.

@@ -169,7 +169,10 @@ cvars.AddChangeCallback("blacksoul_theme_all_gamemodes", function(_, _, value)
 	derma.RefreshSkins()
 end, "BlackSoul.Github.GamemodeScope")
 
-local SKIN = {};
+-- SKIN is deliberately global (stock convention, see lua/skins/default.lua):
+-- the GWEN helpers in derma_gwen.lua read the global while the skin defines
+-- its texture colours.
+SKIN = {};
 
 SKIN.PrintName                                = "Github Derma Skin";
 SKIN.Author                                   = "WLKRE";
