@@ -209,6 +209,11 @@ pagination
 	font-weight: bolder;
 }
 
+pagination span.pagenum
+{
+	pointer-events: none;
+}
+
 
 left
 {

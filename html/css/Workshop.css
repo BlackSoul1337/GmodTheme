@@ -254,6 +254,7 @@ workshopcontainer
 	border: 1px solid #30363D;
 	border-radius: 6px;
 	padding: 8px;
+	padding-bottom: 80px; /* keep the tile grid clear of the pagination bar */
 }
 
 controls
@@ -341,7 +342,7 @@ controls control.disabled
 
 	z-index: 128;
 	position: absolute;
-	bottom: 72px;
+	bottom: 68px; /* flush with the pagination bar top ( 12px + 56px ) */
 	left: 0;
 	box-sizing: border-box;
 
@@ -504,6 +505,11 @@ pagination .back:hover, pagination .next:hover
 	border-color: #58A6FF;
 }
 
+pagination .back:active, pagination .next:active
+{
+	background-color: #0D1117;
+}
+
 pagination .back
 {
 	left: 6px;
@@ -534,6 +540,7 @@ pagination span.pagenum
 	right: 0;
 	font-size: 14px;
 	color: #C9D1D9;
+	pointer-events: none; /* the page number spans the full bar and blocked clicks on the arrow chips */
 }
 pagination a.page
 {
