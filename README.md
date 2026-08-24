@@ -10,12 +10,12 @@ A dark, GitHub-style theme for Garry's Mod: main menu, server browser, addon man
 - Menu files load from the addon folder — game updates and Steam file verification don't wipe the theme
 - Server browser synced with the current in-game browser: infinite scroll, double-click to join, country flags, version tags, favorites by IP
 - Addon manager with preset import/export, multi-select enable/disable and dependency warnings
-- Settings gear in the navbar: UI scale (75–135%) and an optional "apply theme to all gamemodes" switch (Helix keeps its native UI by default)
+- Settings gear in the navbar: UI scale (75–135%) and an optional "apply theme to all gamemodes"
 
 ## Installation
 
 1. Close Garry's Mod.
-2. Copy this folder into `.../Steam/steamapps/common/GarrysMod/garrysmod/addons/` (the folder name doesn't matter).
+2. Copy this folder into `.../Steam/steamapps/common/GarrysMod/garrysmod/addons/`
 3. Start the game.
 
 If you previously installed a version by copying files into `garrysmod/html`, run Steam's "Verify integrity of game files" once to restore the originals — the addon overrides them anyway.
@@ -25,7 +25,7 @@ If you previously installed a version by copying files into `garrysmod/html`, ru
 Open the gear icon in the bottom-right of the main menu:
 
 - **UI Scale** — minus / current value (click to reset) / plus, 75–135%.
-- **Apply theme to all gamemodes** — off by default; Helix and ixhl2rp keep their native Derma UI until enabled. Takes effect on the next game load.
+- **Apply theme to all gamemodes** — off by default; Takes effect on the next game load.
 
 Both settings persist between sessions.
 
