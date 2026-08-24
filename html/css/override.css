@@ -120,12 +120,13 @@
 	opacity: 0.85;
 }
 
-.theme-settings {
-	display: block;
-	bottom: 50px;
-	padding: 12px;
-	width: 280px;
+/* Higher specificity than .gitpopup so the popup keeps its own padding/width */
+.gitpopup.theme-settings {
+	bottom: 56px;
+	width: 300px;
+	padding: 14px;
 	color: #C9D1D9;
+	box-sizing: border-box;
 }
 
 .theme-settings-title {
@@ -172,11 +173,15 @@
 }
 
 .theme-settings-checkbox {
-	display: -webkit-box;
-	-webkit-box-align: start;
+	display: block;
 	cursor: pointer;
 	font-size: 12px;
 	line-height: 16px;
+	margin-top: 4px;
+}
+
+.theme-settings-checkbox span {
+	vertical-align: top;
 }
 
 .theme-settings-checkbox input {
@@ -231,110 +236,8 @@
 	max-height: 80%;
 }
 
-.controls ul
-{
-	list-style: none;
-	padding: 0;
-}
-
-.maplist {
-	background-color: #161B22;
-	border-radius: 6px 0 0 6px;
-	border: 1px solid #30363D;
-	box-shadow: 0 16px 44px rgba( 0, 0, 0, 0.34 );
-}
-
 ::placeholder {
 	color: #8B949E;
-}
-
-.controls .search
-{
-	width: 100%;
-	box-sizing: border-box;
-	background-color: #0D1117;
-	line-height: 28px;
-	border-radius: 5px;
-	border: 1px solid #30363D;
-	padding-left: 12px;
-	outline-width: 0;
-	color: #C2C3C5;
-}
-
-.controls LI.category
-{
-	background-color: #161B22;
-	margin: 0;
-	font-size: 11px;
-	font-weight: bold;
-	border-radius: 6px 0 0 6px;
-	color: #6B727D;
-	height: 28px;
-	cursor: pointer;
-	position: relative;
-	box-sizing: border-box;
-	overflow: hidden;
-}
-
-.controls LI.active
-{
-	background-color: #0D1117;
-	color: #D7D8D9;
-}
-
-.controls LI.category .name
-{
-	position: absolute;
-	left: 12px;
-	top: 8px;
-	bottom: 0;
-	right: 42px;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	line-height: 12px;
-}
-
-.controls LI.category .count
-{
-	position: absolute;
-	top: 8px;
-	right: 12px;
-	width: 24px;
-	padding: 0;
-	background-color: transparent;
-	color: #58A6FF;
-	font-size: 10px;
-	overflow: hidden;
-	white-space: nowrap;
-	text-align: right;
-	line-height: 12px;
-}
-
-gamesettings {
-	background-color: #161B22;
-	border-radius: 0 6px 6px 0;
-	border: 1px solid #30363D;
-	width: 239px;
-	box-shadow: 0 16px 44px rgba( 0, 0, 0, 0.34 );
-}
-
-gamesettings bottom button
-{
-	bottom: 0px;
-	padding: 10px;
-	position: absolute;
-	margin: 10px;
-	font-size: 20px;
-	width: 219px
-}
-
-.maplist-inset {
-	background-color: #0D1117;
-}
-
-.search-wrapper {
-	padding-right: 10px;
 }
 
 UL.category LI:first-child {
@@ -344,120 +247,6 @@ UL.category LI:first-child {
 
 UL.category LI:first-child small {
 	color: #58A6FF;
-}
-
-UL.category LI.mapicon IMG
-{
-	margin-bottom: 8px;
-}
-
-UL.category LI.mapicon IMG.thumbnail
-{
-	width: 162px;
-	height: 162px;
-	border-radius: 6px;
-}
-UL.category LI.mapicon
-{
-	position: relative;
-	width: 162px;
-	text-align: center;
-	font-size: 10px;
-	padding: 8px;
-	padding-bottom: 2px;
-	margin: 0;
-	cursor: pointer;
-	vertical-align: top;
-	border-radius: 8px;
-	-webkit-transition: background-color 0.12s ease, -webkit-transform 0.12s ease, box-shadow 0.12s ease;
-}
-
-UL.category LI.mapicon:hover
-{
-	background-color: rgba( 88, 166, 255, 0.10 );
-	-webkit-transform: translateY(-2px);
-	box-shadow: 0 8px 20px rgba( 0, 0, 0, 0.24 );
-}
-
-UL.category LI.mapicon span {
-	word-break: break-all;
-	color: #6E7681;
-	font-size: 12px;
-}
-
-UL.category LI.mapicon.selected
-{
-	background-color: transparent;
-	border-radius: 3px;
-}
-
-UL.category LI.mapicon.selected span
-{
-	font-weight: bold;
-	color: #D7D8D9;
-}
-
-.dropdown
-{
-	position: relative;
-	z-index: 100;
-}
-
-.dropdown .label
-{
-	border-radius: 6px;
-	height: 28px;
-	padding-left: 12px;
-	line-height: 28px;
-	cursor: pointer;
-
-	background-color: #21262D;
-	border: 1px solid #363B42;
-	color: #C9D1D9;
-	cursor: pointer;
-	vertical-align: middle;
-	-webkit-transition: background-color 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
-}
-
-.dropdown .label:hover
-{
-	background-color: #30363D;
-	border-color: #58A6FF;
-	box-shadow: 0 0 14px rgba( 88, 166, 255, 0.18 );
-}
-
-.dropdown .contents
-{
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 39px;
-	background-color: #161B22;
-	border-radius: 6px;
-	border: 1px solid #30363D;
-	display: none;
-	cursor: pointer;
-	font-size: 12px;
-}
-
-.dropdown .contents div:first-child {
-	border-radius: 6px 6px 0 0;
-}
-
-.dropdown .contents div:last-child {
-	border-radius: 0 0 6px 6px;
-}
-
-.dropdown .contents div
-{
-	padding: 8px 12px;
-	color: #C4CCD4;
-	border-bottom: 1px solid #21262D;
-}
-
-.dropdown .contents div:hover
-{
-	background-color: #1F242C;
 }
 
 .btn-primary, .btn-primary-disabled
@@ -476,10 +265,6 @@ UL.category LI.mapicon.selected span
 	background-color: #388BFD;
 	-webkit-transform: translateY(-1px);
 	box-shadow: 0 8px 22px rgba( 0, 0, 0, 0.28 );
-}
-
-gamesettings .control LABEL {
-	color: #C9D1D9;
 }
 
 input[type=checkbox] {
@@ -516,7 +301,8 @@ input[type=checkbox]:disabled + label::before {
 .ugc_settings input[type=checkbox],
 .ugc_settings input[type=radio],
 .centermessage input[type=checkbox],
-.centermessage input[type=radio]
+.centermessage input[type=radio],
+.theme-settings input[type=checkbox]
 {
 	-webkit-appearance: none;
 	background: #0D1117;
@@ -532,7 +318,8 @@ input[type=checkbox]:disabled + label::before {
 }
 
 .ugc_settings input[type=radio],
-.centermessage input[type=radio]
+.centermessage input[type=radio],
+.theme-settings input[type=radio]
 {
 	border-radius: 50%;
 }
@@ -546,14 +333,16 @@ input[type=checkbox]:disabled + label::before {
 .ugc_settings input[type=checkbox]:checked,
 .ugc_settings input[type=radio]:checked,
 .centermessage input[type=checkbox]:checked,
-.centermessage input[type=radio]:checked
+.centermessage input[type=radio]:checked,
+.theme-settings input[type=checkbox]:checked
 {
 	background: #1F6FEB;
 	border-color: #58A6FF;
 }
 
 .ugc_settings input[type=checkbox]:checked:after,
-.centermessage input[type=checkbox]:checked:after
+.centermessage input[type=checkbox]:checked:after,
+.theme-settings input[type=checkbox]:checked:after
 {
 	content: '\2713';
 	color: #FFFFFF;

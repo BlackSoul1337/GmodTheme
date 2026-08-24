@@ -9,16 +9,11 @@ var UpdateInterval = undefined;
 
 function StripWeirdSymbols( name )
 {
-	// Weird 2 byte symbols
-	var ret = name.replace( /[\u1400-\u167F\u1680-\u169F\u16A0-\u16FF\u2100-\u23FF\u2580-\u259F\u25A0-\u25FF\u2600-\u26FF\u2700-\u27BF\u2A00-\u2AFF\u2B00-\u2BFF\u2900-\u297F\u3000-\u303F]/g, "" );
-
-	// Weird 4 byte symbols
-	ret = ret.replace( /([\uD808|\uD809|\uD835][\uDC00-\uDFFF])/g, "" );
+	// Weird symbols
+	var ret = name.replace( /[\u2100-\u23FF\u2580-\u259F\u25A0-\u25FF\u2600-\u26FF\u2700-\u27BF\u2B00-\u2BFF]/g, "" );
 
 	// Emojis
 	ret = ret.replace( /([\uD83C|\uD83D|\uD83E][\uDC00-\uDFFF])/g, "" );
-	ret = ret.replace( /(\u3299\uFE0F)/g, "" ); // ???
-
 	return ret;
 }
 
@@ -42,25 +37,6 @@ function ControllerServers( $scope, $element, $rootScope, $location )
 	RootScope.GMHasFilterTags = false;
 	RootScope.ServersPerPage = 128;
 	$scope.JoinIfHasSlot = false;
-
-	// Bound directly by the gamemode filter checkboxes via ng-model.
-	$scope.FilterTagChanged = function()
-	{
-		RootScope.GMHasFilterTags = Object.keys( RootScope.GMFilterTags ).length > 0;
-	}
-
-	// Show only the chosen category.
-	$scope.ReverseFilter = function( cat )
-	{
-		RootScope.GMCats.forEach( function( category )
-		{
-			RootScope.GMFilterTags[ category ] = ( category != cat );
-		} );
-
-		RootScope.GMHasFilterTags = true;
-
-		UpdateDigest( RootScope, 50 );
-	}
 
 	$scope.FindServerString = "";
 	$scope.FoundServers = [];
@@ -101,6 +77,7 @@ function ControllerServers( $scope, $element, $rootScope, $location )
 		//
 		ServerTypes[ RootScope.ServerType ].gamemodes = {};
 		ServerTypes[ RootScope.ServerType ].list.length = 0;
+		ResetGamemodeInfo();
 
 		if ( !IN_ENGINE ) TestUpdateServers( RootScope.ServerType, RequestNum[ RootScope.ServerType ] );
 
@@ -214,6 +191,13 @@ function ControllerServers( $scope, $element, $rootScope, $location )
 	}
 	$rootScope.JoinServer = $scope.JoinServer;
 	
+	$scope.PasswordInput = function( e, srv )
+	{
+		if ( e.keyCode == 13 )
+			$scope.JoinServer( srv )
+	}
+	$rootScope.PasswordInput = $scope.PasswordInput;
+
 	$scope.PasswordInput = function( e, srv )
 	{
 		if ( e.keyCode == 13 )
@@ -568,7 +552,7 @@ function MissingGamemodeIcon( element )
 		return true;
 	}
 
-	element.src = "asset://garrysmod/gamemodes/base/icon24.png";
+	element.src = "../../../gamemodes/base/icon24.png";
 	return true;
 }
 
@@ -576,6 +560,42 @@ function MissingFlag( element )
 {
 	element.src = "img/unk_flag.png";
 	return true;
+}
+
+function ReverseFilter( me )
+{
+	var cat = me.dataset.cat;
+	
+	RootScope.GMCats.forEach( function( category )
+	{
+		RootScope.GMFilterTags[ category ] = true;
+		document.getElementById( "gmfltr_hide_" + category ).checked = true;
+	} );
+
+	delete RootScope.GMFilterTags[ cat ];
+	document.getElementById( "gmfltr_hide_" + cat ).checked = false;
+
+	RootScope.GMHasFilterTags = true;
+
+	UpdateDigest( RootScope, 50 );
+}
+
+function SwitchFilter( me )
+{
+	var cat = me.dataset.cat;
+	
+	if ( me.checked )
+	{
+		RootScope.GMFilterTags[ cat ] = true;
+	}
+	else
+	{
+		delete RootScope.GMFilterTags[ cat ];
+	}
+
+	RootScope.GMHasFilterTags = Object.keys( RootScope.GMFilterTags ).length > 0;
+
+	UpdateDigest( RootScope, 50 );
 }
 
 function SetPlayerList( serverip, players )

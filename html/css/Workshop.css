@@ -7,23 +7,26 @@ workshopicon
 	margin: 10px;
 	position: relative;
 	overflow: hidden;
-	background-color: #transparent;
+	background-color: #21262D;
 	background-position: center;
 	-webkit-box-shadow: 0px 0px 1px 1px rgba( 0, 0, 0, 0.3 );
-	border: 1px solid #30363D;
-	margin: 12px;
-	border-radius: 6px;
+	border-radius: 3px;
+	border: 3px solid #30363D;
+	-webkit-transition: border-color 0.12s ease, -webkit-transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+workshopicon:hover
+{
+	border-color: #58A6FF;
+	-webkit-transform: translateY(-2px);
+	box-shadow: 0 10px 24px rgba( 0, 0, 0, 0.34 );
 }
 
 workshopicon preview
 {
-	content: "";
 	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	border-radius: 7px;
+	left: 50%;
+	top: 50%;
 }
 
 workshopicon disabled
@@ -37,7 +40,6 @@ workshopicon disabled
 	position: absolute;
 	top: 0;
 	left: 0;
-	border-radius: 7px;
 }
 
 workshopicon.disabled disabled
@@ -47,6 +49,7 @@ workshopicon.disabled disabled
 
 workshopicon controls
 {
+	z-index: 10;
 	bottom: -32px;
 	-webkit-transition: bottom 100ms ease-in 0ms;
 }
@@ -65,13 +68,14 @@ workshopicon name
 	top: 0;
 	right: 0;
 	text-align: left;
-	background-color: #161B22;
+	background-color: rgba( 22, 27, 34, 0.95 );
 	font-size: 14px;
-	letter-spacing: 0;
-	font-family: 'Mona-Sans', 'Segoe UI', Arial, sans-serif;
-	color: #F5F5F5;
+	font-weight: bold;
+	letter-spacing: -1px;
+	z-index: 10;
+	font-family: "Arial";
+	color: #C9D1D9;
 	height: 22px;
-	border-radius: 5px 5px 0 0;
 }
 workshopicon name label
 {
@@ -80,7 +84,7 @@ workshopicon name label
 	top: 0;
 	right: 2px;
 
-	padding: 3px 12px 4px 12px;
+	padding: 2px 0px 4px 2px;
 	cursor: pointer;
 	white-space: nowrap;
 	overflow: hidden;
@@ -102,25 +106,24 @@ workshopicon author, workshopicon votes, workshopicon size
 	right: 0px;
 	text-align: right;
 	font-size: 11px;
+	font-weight: bold;
+	z-index: 10;
 	cursor: pointer;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-family: 'Mona-Sans', 'Segoe UI', Arial, sans-serif;
+	font-family: "Arial";
 	color: #8B949E;
 	background-color: #161B22;
+	border-radius: 4px 0 0 0;
 	padding: 3px 6px;
-}
 
-workshopicon author {
-	border-radius: 6px 0 5px 0;
 }
-
 workshopicon size
 {
 	top: 22px;
 	bottom: auto;
-	border-radius: 0 0 0 6px;
+	border-radius: 0 0 0 4px;
 }
 
 workshopicon author, workshopicon size
@@ -138,13 +141,13 @@ workshopicon:hover author, workshopicon:hover size
 workshopicon votes
 {
 	left: 0px;
-	color: #58A6FF;
+	color: #3FB950;
 	-webkit-transition: left 100ms ease-out 200ms;
 }
 
 workshopicon votes.negative
 {
-	color: #a44;
+	color: #F85149;
 }
 
 workshopicon:hover votes
@@ -157,7 +160,7 @@ workshopicon votes
 {
 	bottom: 0px;
 	right: inherit;
-	border-radius: 0 6px 0 5px;
+	border-radius: 0 4px 0 0;
 }
 
 workshopicon description
@@ -167,15 +170,13 @@ workshopicon description
 	top: 0px;
 	bottom: 0px;
 	right: 0;
-	text-align: justify;
-	background-color: rgba( 4, 13, 33, 0.90 );
+	text-align: left;
+	background-color: rgba( 31, 111, 235, 0.92 );
 	font-size: 11px;
-	padding: 8px 8px 36px 8px;
+	padding: 32px 8px;
 	color: #fff;
 	cursor: default;
-	word-break: break-all;
-	border-radius: 6px;
-	pointer-events: none;
+	word-break: break-word;
 
 	opacity: 0;
 	-webkit-transition: opacity 100ms ease-in 0ms;
@@ -187,8 +188,33 @@ workshopicon .checkbox
 	top: 0px;
 	right: 0px;
 	margin: 0;
+	z-index: 32;
 	height: 19px;
 	width: 19px;
+	-webkit-appearance: none;
+	background: #0D1117;
+	border: 1px solid #6E7681;
+	box-sizing: border-box;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+workshopicon .checkbox:checked
+{
+	background: #1F6FEB;
+	border-color: #58A6FF;
+}
+
+workshopicon .checkbox:checked:after
+{
+	content: '\2713';
+	color: #FFFFFF;
+	font-size: 10px;
+	font-weight: 900;
+	left: 1px;
+	line-height: 11px;
+	position: absolute;
+	top: 0;
 }
 
 workshopicon:hover description
@@ -202,13 +228,15 @@ workshopicon:hover description
 workshopmessage
 {
 	font-size: 48px;
-	color: #999;
+	font-weight: bolder;
+	color: #8B949E;
 	text-align: center;
 	display: block;
 	margin: 64px;
 }
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 800px)
+{
 	workshopmessage
 	{
 		margin: 16px;
@@ -219,13 +247,13 @@ workshopcontainer
 {
 	position: absolute;
 	left: 0px;
-	top: 0;
+	top: 64px;
 	bottom: 0px;
 	right: 0px;
-	background-color: #0D1117;
-	border-radius: 0 6px 6px 0;
-	padding: 8px;
+	background-color: #161B22;
 	border: 1px solid #30363D;
+	border-radius: 6px;
+	padding: 8px;
 }
 
 controls
@@ -234,63 +262,24 @@ controls
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	display: -webkit-box;
-	-webkit-box-align: center;
-	-webkit-box-pack: end;
 	padding: 3px;
 	margin: 6px 5px;
 	overflow: display;
-	z-index: 22;
-}
-
-controls left
-{
-	display: block;
-	-webkit-box-flex: 1;
-	min-width: 0;
-}
-
-controls right
-{
-	display: block;
-	float: none;
-	white-space: nowrap;
-}
-
-controls selectionmark
-{
-	display: block;
-	width: 18px;
-	height: 18px;
-	line-height: 18px;
-	margin-right: 6px;
-	border: 1px solid rgba( 255, 255, 255, 0.62 );
-	border-radius: 4px;
-	background-color: #1F6FEB;
-	box-shadow: 0 2px 7px rgba( 0, 0, 0, 0.32 );
-	color: #FFFFFF;
-	font-size: 13px;
-	font-weight: 900;
-	text-align: center;
-	pointer-events: none;
-}
-
-controls selectionmark:before
-{
-	content: '\2713';
 }
 
 controls control
 {
 	font-size: 11px;
 	display: inline-block;
-	background-color: #58A6FF;
+	background-color: #21262D;
+	border: 1px solid #30363D;
+	color: #C9D1D9;
 	padding: 2px 4px;
-	border-radius: 4px;
+	border-radius: 2px;
 	cursor: pointer;
 	height: 15px;
+	-webkit-box-shadow: 1px 1px 2px black;
 	position: relative;
-	color: white;
 }
 
 controls control IMG
@@ -298,18 +287,38 @@ controls control IMG
 	padding-top: 3px;
 }
 
+controls control:hover
+{
+	background-color: #30363D;
+	border-color: #58A6FF;
+}
+
+
+controls control.disabled
+{
+	background-color: #161B22;
+	color: #6E7681;
+	cursor: default;
+}
+
 .ugc_settings_button
 {
-	height: 24px;
-	width: 24px;
+	height: 44px;
+	width: 44px;
+
+	padding: 6px;
+	background: #1F6FEB;
+	border-radius: 4px;
+	box-sizing: border-box;
+
 	position: absolute;
-	bottom: 20px;
-	right: 20px;
+	bottom: 4px;
+	right: 4px;
 	cursor: default;
 }
 .ugc_settings_button:hover
 {
-	cursor: pointer;
+	background: #388BFD;
 }
 
 .ugc_settings
@@ -319,11 +328,10 @@ controls control IMG
 	padding: 10px;
 	background: #161B22;
 	border-top: 1px solid #30363D;
-	box-shadow: 0 -14px 30px rgba( 0, 0, 0, 0.32 );
-	color: #C9D1D9;
 
+	z-index: 128;
 	position: absolute;
-	bottom: 63px;
+	bottom: 52px;
 	left: 0;
 	box-sizing: border-box;
 
@@ -338,18 +346,18 @@ controls control IMG
 .ugc_settings span
 {
 	display: block;
+	font-weight: bold;
 	color: #C9D1D9;
-	font-weight: 700;
 }
 .ugc_settings label
 {
 	position: relative;
 	top: -2px;
-	color: #C9D1D9;
 }
 
 .ugc_settings a
 {
+	font-weight: bold;
 	color: #C9D1D9;
 	padding: 4px 15px;
 	background: #21262D;
@@ -359,13 +367,16 @@ controls control IMG
 	text-align: center;
 	border-radius: 4px;
 	cursor: default;
-	font-weight: 700;
+	min-width: 140px;
 }
 .ugc_settings a:hover
 {
-	color: #FFFFFF;
 	background: #30363D;
 	border-color: #58A6FF;
+}
+.ugc_settings a:active
+{
+	background: #0D1117;
 }
 
 .ugc_settings_cat
@@ -376,63 +387,6 @@ controls control IMG
 	margin: 0 auto;
 }
 
-.ugc_settings input[type=checkbox],
-.ugc_settings input[type=radio],
-.centermessage input[type=checkbox],
-.centermessage input[type=radio]
-{
-	-webkit-appearance: none;
-	background: #0D1117;
-	border: 1px solid #6E7681;
-	box-sizing: border-box;
-	height: 13px;
-	margin: 0 6px 0 0;
-	position: relative;
-	top: 2px;
-	width: 13px;
-}
-
-.ugc_settings input[type=radio],
-.centermessage input[type=radio]
-{
-	border-radius: 50%;
-}
-
-.ugc_settings input[type=checkbox]:checked,
-.ugc_settings input[type=radio]:checked,
-.centermessage input[type=checkbox]:checked,
-.centermessage input[type=radio]:checked
-{
-	background: #1F6FEB;
-	border-color: #58A6FF;
-}
-
-.ugc_settings input[type=checkbox]:checked:after,
-.centermessage input[type=checkbox]:checked:after
-{
-	content: '\2713';
-	color: #FFFFFF;
-	font-size: 10px;
-	font-weight: 900;
-	left: 1px;
-	line-height: 11px;
-	position: absolute;
-	top: 0;
-}
-
-.ugc_settings input[type=radio]:checked:after,
-.centermessage input[type=radio]:checked:after
-{
-	content: '';
-	background: #FFFFFF;
-	border-radius: 50%;
-	height: 5px;
-	left: 3px;
-	position: absolute;
-	top: 3px;
-	width: 5px;
-}
-
 .create_preset
 {
 	min-width: 350px;
@@ -440,27 +394,44 @@ controls control IMG
 
 .preset_content
 {
+	max-height: 400px;
+	min-height: 290px;
 	min-width: 500px;
 	margin-bottom: 5px;
+	display: -webkit-box;
+}
+.preset_side
+{
+	width: 150px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+.preset_side input[type="text"]
+{
+	padding: 2px 4px;
+	box-sizing: border-box;
+	margin-bottom: 8px;
+	margin-right: 8px;
+	display: block;
+	background-color: #0D1117;
+	border: 1px solid #30363D;
+	border-radius: 3px;
+	color: #C9D1D9;
 }
 .preset_list
 {
 	background: #0D1117;
 	border: 1px solid #30363D;
-	border-radius: 5px;
-	width: 150px;
-	display: inline-block;
-	max-height: 400px;
-	min-height: 230px;
+	color: #C9D1D9;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	-webkit-box-flex: 1;
 }
 .preset_list font
 {
 	display: block;
 	padding: 5px;
 	cursor: default;
-	color: #C9D1D9;
 }
 .preset_list font:hover
 {
@@ -469,26 +440,24 @@ controls control IMG
 .preset_list font.active
 {
 	background: #30363D;
-	color: #FFFFFF;
+	color: #fff;
 }
 .preset_data
 {
-	width: 345px;
+	-webkit-box-flex: 1;
 	padding-left: 5px;
-	display: inline-block;
-	vertical-align: top;
 	cursor: default;
-	color: #C9D1D9;
 }
 
 pagination
 {
-	background-color: #0D1117;
+	background-color: #21262D;
+	border: 1px solid #30363D;
 	border-radius: 4px;
 	margin: 0 auto;
 	padding: 4px 4px;
-	/*white-space: nowrap;*/
 	max-width: 500px;
+	z-index: 64; /* Ensure it is above other elements in case something goes wrong */
 }
 
 @media screen and (max-width: 840px)
@@ -507,8 +476,14 @@ pagination .back, pagination .next
 	background: transparent url('../img/arrow_left.png') no-repeat;
 	width: 48px;
 	height: 36px;
+	background-color: #1F6FEB;
 	border-radius: 3px;
 	background-position: center center;
+}
+
+pagination .back:hover, pagination .next:hover
+{
+	background-color: #388BFD;
 }
 
 pagination .next
@@ -526,6 +501,7 @@ pagination .pages
 pagination span.pagenum
 {
 	font-size: 14px;
+	color: #C9D1D9;
 }
 pagination a.page
 {
@@ -538,38 +514,40 @@ pagination a.page.active
 
 workshopicon.installed
 {
-	border-color: #000;
+	border-color: #2EA043;
 }
 workshopicon.installed name, workshopicon.installed author, workshopicon.installed votes, workshopicon.installed size
 {
-	background: #2F353C;
+	background: #1B2E24;
+	color: #3FB950;
 }
 
 workshopicon.disabled
 {
-	border-color: #30363D;
+	border-color: #6E7681;
 }
 workshopicon.disabled name, workshopicon.disabled author, workshopicon.disabled votes, workshopicon.disabled size
 {
-	background: #0D1117;
+	background: #161B22;
+	color: #8B949E;
 }
 
 workshopicon.invalid
 {
-	border-color: #d22;
+	border-color: #da3633;
 }
 workshopicon.invalid name, workshopicon.invalid author, workshopicon.invalid votes, workshopicon.invalid size
 {
-	background: #d22;
+	background: #da3633;
 	color: #fff;
 }
 
 workshopicon.invalid.disabled
 {
-	border-color: #922;
+	border-color: #802f2d;
 }
 workshopicon.invalid.disabled name, workshopicon.invalid.disabled author, workshopicon.invalid.disabled votes, workshopicon.invalid.disabled size
 {
-	background: #922;
+	background: #802f2d;
 	color: #fff;
 }

@@ -49,6 +49,18 @@ INPUT.gm_search
 	margin-bottom: 5px;
 }
 
+INPUT[type="text"], INPUT[type="number"]
+{
+	border: 1px solid #30363D;
+	border-radius: 2px;
+	outline-color: #58A6FF;
+}
+
+A:not(:disabled)
+{
+	cursor: pointer;
+}
+
 A
 {
 	text-decoration: none;
@@ -114,26 +126,7 @@ UL.category LI.icon
 	position: absolute;
 }
 
-.btn-back
-{
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#05C));
-	border: 1px solid #CCC;
-	border-color: #05C #05C #003580;
-	color: white;
-	border-radius: 3px;
-	cursor: pointer;
-	vertical-align: middle;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-	height: 24px;
-	-webkit-transition: background-image 0.12s ease, -webkit-transform 0.12s ease, box-shadow 0.12s ease;
-}
 
-.btn-back:hover
-{
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2ae), to(#27e));
-	-webkit-transform: translateY(-1px);
-	box-shadow: 0 8px 18px rgba( 0, 0, 0, 0.24 );
-}
 
 DIV.gridicon
 {
@@ -201,7 +194,7 @@ DIV.disabled
 
 .whiterounded
 {
-	background-color: white;
+	background-color: #161B22;
 	border-radius: 4px;
 }
 

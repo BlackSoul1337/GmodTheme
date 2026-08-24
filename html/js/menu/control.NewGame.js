@@ -260,10 +260,12 @@ function UpdateServerSettings( sttngs )
 	{
 		for ( var k in sttngs.settings )
 		{
-			var s = sttngs.settings[k]
+			var s = sttngs.settings[k];
+			if ( !s.text ) s.text = s.name;
+
 			if ( s.type == "CheckBox" ) { s.Value = s.Value == "1"; sttngs.CheckBox.push( s ); }
-			if ( s.type == "Numeric" ) { sttngs.Numeric.push( s ); }
-			if ( s.type == "Text" ) { sttngs.Text.push( s ); }
+			else if ( s.type == "Numeric" ) { sttngs.Numeric.push( s ); }
+			else { sttngs.Text.push( s ); }
 		}
 	}
 

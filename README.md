@@ -1,39 +1,35 @@
-# BlackSoul Garry's Mod Theme
+# BlackSoul Gmod Theme
 
-Тёмная GitHub-like тема для Garry's Mod: главное меню, браузер серверов, загрузочные экраны и Derma/спавн-меню. Основана на проекте https://github.com/JWalkerMailly/Derma-Github-Theme.
+A dark, GitHub-style theme for Garry's Mod: main menu, server browser, addon manager, map selection and the Derma spawn menu — restyled as a single drop-in addon. Based on [JWalkerMailly/Derma-Github-Theme](https://github.com/JWalkerMailly/Derma-Github-Theme).
 
-![Пример оформления меню](menu_example.jpg)
+![Main menu](menu_example.jpg)
 
-## Установка
+## Features
 
-1. Полностью закрой Garry's Mod.
-2. Скопируй содержимое этого репозитория в папку `...\Steam\steamapps\common\GarrysMod\garrysmod\addons\BlackSoul-GmodTheme\` (имя папки может быть любым).
-3. Запусти игру.
+- Dark GitHub-style palette across the whole menu UI
+- Menu files load from the addon folder — game updates and Steam file verification don't wipe the theme
+- Server browser synced with the current in-game browser: infinite scroll, double-click to join, country flags, version tags, favorites by IP
+- Addon manager with preset import/export, multi-select enable/disable and dependency warnings
+- Settings gear in the navbar: UI scale (75–135%) and an optional "apply theme to all gamemodes" switch (Helix keeps its native UI by default)
 
-Тема работает как обычный папочный аддон: файлы игры не заменяются, поэтому обновления Garry's Mod и «Проверка целостности кэша» в Steam больше не сбивают тему — после любого обновления достаточно просто запустить игру.
+## Installation
 
-### Переход со старой версии (копированием в `garrysmod/html`)
+1. Close Garry's Mod.
+2. Copy this folder into `.../Steam/steamapps/common/GarrysMod/garrysmod/addons/` (the folder name doesn't matter).
+3. Start the game.
 
-- Если ранее тема устанавливалась копированием файлов в `garrysmod/`, старые изменённые файлы можно вернуть к штатным через Steam → «Проверить целостность файлов кэша». Это необязательно: файлы аддона имеют приоритет над штатным меню.
-- Удали старую папку `garrysmod/addons/Derma-Github-Theme-1.0.0`, если она есть — её функции включены в этот аддон, а одновременная работа двух версий конфликтует.
+If you previously installed a version by copying files into `garrysmod/html`, run Steam's "Verify integrity of game files" once to restore the originals — the addon overrides them anyway.
 
-## Настройки
+## Usage
 
-В правом нижнем углу главного меню — иконка-шестерёнка:
+Open the gear icon in the bottom-right of the main menu:
 
-- **Масштаб интерфейса** — кнопки − / текущий процент (клик — сброс к 100%) / +, диапазон 75–135%.
-- **«Применять Derma-тему ко всем режимам, включая Helix»** — экспериментальный переключатель. По умолчанию выключен: в Helix и ixhl2rp используется штатный интерфейс. Изменение применяется при следующей загрузке игры.
+- **UI Scale** — minus / current value (click to reset) / plus, 75–135%.
+- **Apply theme to all gamemodes** — off by default; Helix and ixhl2rp keep their native Derma UI until enabled. Takes effect on the next game load.
 
-Настройки сохраняются между запусками.
+Both settings persist between sessions.
 
-## Структура
+## Credits
 
-- `html/` — главное меню, шаблоны и контроллеры (монтируются поверх штатных через механизм папочных аддонов);
-- `lua/` — Derma-скин `BlackSoulGithub` и область его применения;
-- `materials/`, `resource/`, `backgrounds/`, `gamemodes/` — фоны меню и загрузки, тёмная Source-схема, шрифты;
-- `addon.json` — метаданные аддона.
-
-## Кредиты
-
-- Базовый проект: [JWalkerMailly/Derma-Github-Theme](https://github.com/JWalkerMailly/Derma-Github-Theme)
-- Иконки меню: Octicons (GitHub)
+- Base project: [JWalkerMailly/Derma-Github-Theme](https://github.com/JWalkerMailly/Derma-Github-Theme)
+- Menu icons: [Octicons](https://primer.style/foundations/icons) by GitHub

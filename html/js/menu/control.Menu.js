@@ -86,7 +86,20 @@ function MenuController( $scope, $rootScope )
 	$scope.ToggleThemeSettings = function()
 	{
 		$( ".popup, .gitpopup" ).not( ".theme-settings" ).hide();
-		$( ".theme-settings" ).toggle();
+
+		var popup = $( ".theme-settings" );
+		popup.toggle();
+
+		// Anchor the popup to the gear button. getBoundingClientRect() returns
+		// real pixels while CSS offsets are scaled by the body zoom factor.
+		if ( popup.is( ":visible" ) )
+		{
+			var gear = $( ".theme-settings-toggle" )[ 0 ].getBoundingClientRect();
+			var scale = parseFloat( document.body.style.zoom ) || 1;
+			var right = ( document.documentElement.clientWidth - gear.right ) / scale;
+
+			popup.css( "right", Math.max( 8, Math.round( right ) ) + "px" );
+		}
 	}
 
 	// The menu state has no addon Lua, so the cookie store is the persistence
@@ -319,6 +332,11 @@ function GetGamemodeInfo( name )
 	if ( !GamemodeDetails[nameL] ) GamemodeDetails[nameL] = { title: name, name: nameL }
 
 	return GamemodeDetails[nameL];
+}
+
+function ResetGamemodeInfo()
+{
+	GamemodeDetails = {};
 }
 
 function UpdateAddonMaps( inmaps )

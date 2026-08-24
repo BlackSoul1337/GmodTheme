@@ -95,6 +95,7 @@
 			<div class="right button" ng-click="ToggleProblems()" style="overflow: visible;">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M13 17.5a1 1 0 11-2 0 1 1 0 012 0zm-.25-8.25a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0v-4.5z"></path><path fill-rule="evenodd" d="M9.836 3.244c.963-1.665 3.365-1.665 4.328 0l8.967 15.504c.963 1.667-.24 3.752-2.165 3.752H3.034c-1.926 0-3.128-2.085-2.165-3.752L9.836 3.244zm3.03.751a1 1 0 00-1.732 0L2.168 19.499A1 1 0 003.034 21h17.932a1 1 0 00.866-1.5L12.866 3.994z"></path></svg>
 				<span ng-Localize="'problems'"></span>
+				<number ng-show="ProblemCount > 0" class="{{IfElse( ProblemSeverity > 0, 'severity' + ProblemSeverity, '' )}}">{{ProblemCount}}</number>
 			</div>
 
 			<!-- Lang -->
@@ -103,15 +104,15 @@
 				<span>{{Language}}</span>
 			</div>
 
-			<div class="right button smallicon hidelabel theme-settings-toggle" ng-click="ToggleThemeSettings(); $event.stopPropagation();" title="Настройки темы">
+			<div class="right button smallicon hidelabel theme-settings-toggle" ng-click="ToggleThemeSettings(); $event.stopPropagation();">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path fill-rule="evenodd" d="M9.67 1.55a2.25 2.25 0 014.66 0l.15 1.2c.35.13.69.28 1.01.46l.96-.73a2.25 2.25 0 013.29.3l.33.34a2.25 2.25 0 01.3 3.29l-.73.96c.18.32.33.66.46 1.01l1.2.15a2.25 2.25 0 012 2.23v.48a2.25 2.25 0 01-2 2.23l-1.2.15c-.13.35-.28.69-.46 1.01l.73.96a2.25 2.25 0 01-.3 3.29l-.33.34a2.25 2.25 0 01-3.29.3l-.96-.73c-.32.18-.66.33-1.01.46l-.15 1.2a2.25 2.25 0 01-2.23 2h-.48a2.25 2.25 0 01-2.23-2l-.15-1.2a8.54 8.54 0 01-1.01-.46l-.96.73a2.25 2.25 0 01-3.29-.3l-.34-.34a2.25 2.25 0 01-.3-3.29l.73-.96a8.54 8.54 0 01-.46-1.01l-1.2-.15a2.25 2.25 0 01-2-2.23v-.48a2.25 2.25 0 012-2.23l1.2-.15c.13-.35.28-.69.46-1.01l-.73-.96a2.25 2.25 0 01.3-3.29l.34-.34a2.25 2.25 0 013.29-.3l.96.73c.32-.18.66-.33 1.01-.46l.15-1.2zM12 9a3 3 0 100 6 3 3 0 000-6z"/></svg>
 			</div>
 		</div>
 
 		<div class="theme-settings gitpopup" ng-click="$event.stopPropagation();">
-			<div class="theme-settings-title">Настройки темы</div>
+			<div class="theme-settings-title" ng-Localize="'bs_settings_title'"></div>
 			<div class="theme-settings-row">
-				<span>Масштаб интерфейса</span>
+				<span ng-Localize="'bs_ui_scale'"></span>
 				<div class="theme-scale-controls">
 					<button ng-click="ChangeUIScale( -0.05 )">-</button>
 					<button class="theme-scale-value" ng-click="ResetUIScale()">{{GetUIScalePercent()}}</button>
@@ -120,9 +121,9 @@
 			</div>
 			<label class="theme-settings-checkbox">
 				<input type="checkbox" ng-model="ThemeAllGamemodes" ng-change="SetThemeAllGamemodes()">
-				<span>Применять Derma-тему ко всем режимам, включая Helix</span>
+				<span ng-Localize="'bs_apply_all'"></span>
 			</label>
-			<div class="theme-settings-note">Применится при следующей загрузке игры.</div>
+			<div class="theme-settings-note" ng-Localize="'bs_applies_next_load'"></div>
 		</div>
 
 		<ul class="gamemode_list gitpopup">
