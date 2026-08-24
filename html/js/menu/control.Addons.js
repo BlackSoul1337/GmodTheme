@@ -495,6 +495,9 @@ function ControllerAddons( $scope, $element, $rootScope, $location )
 
 		if ( file.info && file.info.floating ) classes.push( "floating" );
 
+		// Highlight tiles picked for multi-select operations
+		if ( $scope.SelectedItems[ file.id ] ) classes.push( "selected" );
+
 		return classes.join( " " );
 	}
 

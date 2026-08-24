@@ -309,7 +309,7 @@ input[type=checkbox]:disabled + label::before {
 	border: 1px solid #6E7681;
 	box-sizing: border-box;
 	height: 13px;
-	margin: 0 6px 0 0;
+	margin: 3px 6px 3px 0;
 	opacity: 1;
 	pointer-events: auto;
 	position: relative;

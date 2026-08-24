@@ -341,7 +341,7 @@ controls control.disabled
 
 	z-index: 128;
 	position: absolute;
-	bottom: 60px;
+	bottom: 72px;
 	left: 0;
 	box-sizing: border-box;
 
@@ -358,6 +358,7 @@ controls control.disabled
 	display: block;
 	font-weight: bold;
 	color: #C9D1D9;
+	margin-bottom: 8px;
 }
 .ugc_settings label
 {
@@ -465,10 +466,11 @@ pagination
 	border: 1px solid #30363D;
 	border-radius: 4px;
 	margin: 0 auto;
-	padding: 4px 4px;
 	max-width: 500px;
 	z-index: 64; /* Ensure it is above other elements in case something goes wrong */
 	bottom: 12px;
+	height: 56px;
+	box-sizing: border-box;
 }
 
 @media screen and (max-width: 840px)
@@ -482,8 +484,9 @@ pagination
 
 pagination .back, pagination .next
 {
-	display: block;
-	float: left;
+	position: absolute;
+	top: 50%;
+	margin: -18px 0 0;
 	background: transparent url('../img/arrow_left.png') no-repeat;
 	width: 48px;
 	height: 36px;
@@ -491,7 +494,8 @@ pagination .back, pagination .next
 	border: 1px solid #30363D;
 	border-radius: 3px;
 	box-sizing: border-box;
-	background-position: center center;
+	/* The stock textures sit high and off-center inside their canvas */
+	background-position: calc( 50% - 3px ) calc( 50% + 6px );
 }
 
 pagination .back:hover, pagination .next:hover
@@ -500,20 +504,34 @@ pagination .back:hover, pagination .next:hover
 	border-color: #58A6FF;
 }
 
+pagination .back
+{
+	left: 6px;
+}
+
 pagination .next
 {
-	float: right;
+	right: 6px;
 	background-image: url('../img/arrow_right.png');
+	background-position: calc( 50% + 4px ) calc( 50% + 6px );
 }
 
 pagination .pages
 {
-	overflow: hidden;
-	margin-top: 6px;
+	position: absolute;
+	top: 8px;
+	left: 60px;
+	right: 60px;
+	margin: 0;
+	text-align: center;
 }
 
 pagination span.pagenum
 {
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	right: 0;
 	font-size: 14px;
 	color: #C9D1D9;
 }
