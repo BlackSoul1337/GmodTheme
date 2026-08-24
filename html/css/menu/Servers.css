@@ -760,7 +760,7 @@ input[type=number]::-webkit-inner-spin-button
 {
 	div.page.server_browser DIV.innerpage
 	{
-		left: 292px;
+		left: 320px; /* the options panel is still 300px wide until 1280px */
 		right: 5px;
 	}
 

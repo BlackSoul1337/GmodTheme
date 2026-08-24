@@ -271,9 +271,9 @@ controls control
 {
 	font-size: 11px;
 	display: inline-block;
-	background-color: #21262D;
-	border: 1px solid #30363D;
-	color: #C9D1D9;
+	background-color: #C9D1D9;
+	border: 1px solid #8B949E;
+	color: #161B22;
 	padding: 2px 4px;
 	border-radius: 2px;
 	cursor: pointer;
@@ -289,15 +289,15 @@ controls control IMG
 
 controls control:hover
 {
-	background-color: #30363D;
+	background-color: #fff;
 	border-color: #58A6FF;
 }
 
 
 controls control.disabled
 {
-	background-color: #161B22;
-	color: #6E7681;
+	background-color: #6E7681;
+	color: #161B22;
 	cursor: default;
 }
 
@@ -307,18 +307,27 @@ controls control.disabled
 	width: 44px;
 
 	padding: 6px;
-	background: #1F6FEB;
+	background: #21262D;
+	border: 1px solid #30363D;
 	border-radius: 4px;
 	box-sizing: border-box;
 
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+
 	position: absolute;
-	bottom: 4px;
-	right: 4px;
+	bottom: 12px;
+	right: 12px;
 	cursor: default;
 }
 .ugc_settings_button:hover
 {
-	background: #388BFD;
+	border-color: #58A6FF;
+}
+.ugc_settings_button img
+{
+	display: block;
 }
 
 .ugc_settings
@@ -328,10 +337,11 @@ controls control.disabled
 	padding: 10px;
 	background: #161B22;
 	border-top: 1px solid #30363D;
+	color: #C9D1D9;
 
 	z-index: 128;
 	position: absolute;
-	bottom: 52px;
+	bottom: 60px;
 	left: 0;
 	box-sizing: border-box;
 
@@ -458,6 +468,7 @@ pagination
 	padding: 4px 4px;
 	max-width: 500px;
 	z-index: 64; /* Ensure it is above other elements in case something goes wrong */
+	bottom: 12px;
 }
 
 @media screen and (max-width: 840px)
@@ -476,14 +487,17 @@ pagination .back, pagination .next
 	background: transparent url('../img/arrow_left.png') no-repeat;
 	width: 48px;
 	height: 36px;
-	background-color: #1F6FEB;
+	background-color: #21262D;
+	border: 1px solid #30363D;
 	border-radius: 3px;
+	box-sizing: border-box;
 	background-position: center center;
 }
 
 pagination .back:hover, pagination .next:hover
 {
-	background-color: #388BFD;
+	background-color: #30363D;
+	border-color: #58A6FF;
 }
 
 pagination .next
@@ -507,9 +521,17 @@ pagination a.page
 {
 	opacity: 0.5;
 }
+pagination a.page img
+{
+	filter: grayscale(1); /* the stock dot texture is purple */
+}
 pagination a.page.active
 {
 	opacity: 1;
+}
+pagination a.page.active img
+{
+	filter: grayscale(1) brightness(1.5);
 }
 
 workshopicon.installed

@@ -30,6 +30,7 @@ function MenuController( $scope, $rootScope )
 	$scope.ProblemSeverity = 0;
 	$scope.UIScale = 1;
 	$scope.ThemeAllGamemodes = false;
+	$scope.HideProblems = false;
 
 	subscriptions.Init( $scope );
 
@@ -111,11 +112,17 @@ function MenuController( $scope, $rootScope )
 		lua.Run( 'file.Write( "blacksoul_theme_all_gamemodes.txt", %s )', $scope.ThemeAllGamemodes ? "1" : "0" );
 	}
 
+	$scope.SetHideProblems = function()
+	{
+		lua.Run( 'file.Write( "blacksoul_hide_problems.txt", %s )', $scope.HideProblems ? "1" : "0" );
+	}
+
 	setTimeout( function()
 	{
 		$scope.ApplyUIScale();
 		lua.Run( 'pnlMainMenu:Call( "UpdateUIScale( " .. ( file.Read( "blacksoul_menu_ui_scale.txt", "DATA" ) or cookie.GetString( "blacksoul_menu_ui_scale", "1" ) ) .. " )" )' );
 		lua.Run( 'pnlMainMenu:Call( "UpdateThemeAllGamemodes( " .. tostring( ( file.Read( "blacksoul_theme_all_gamemodes.txt", "DATA" ) or cookie.GetString( "blacksoul_theme_all_gamemodes", "0" ) ) == "1" ) .. " )" )' );
+		lua.Run( 'pnlMainMenu:Call( "UpdateHideProblems( " .. tostring( ( file.Read( "blacksoul_hide_problems.txt", "DATA" ) or "0" ) == "1" ) .. " )" )' );
 	}, 0 );
 
 	$scope.ToggleGamemodes = function()
@@ -438,6 +445,12 @@ function SetProblemCount( num, severity )
 function UpdateThemeAllGamemodes( bEnabled )
 {
 	gScope.ThemeAllGamemodes = bEnabled == true || bEnabled == "true";
+	UpdateDigest( gScope, 50 );
+}
+
+function UpdateHideProblems( bEnabled )
+{
+	gScope.HideProblems = bEnabled == true || bEnabled == "true";
 	UpdateDigest( gScope, 50 );
 }
 

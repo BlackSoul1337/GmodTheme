@@ -229,7 +229,9 @@ function ControllerAddons( $scope, $element, $rootScope, $location )
 	$scope.ToggleSelect = function( file, event )
 	{
 		var en = event.target.nodeName.toLowerCase();
-		if ( en != "controls" && en != "description" && en != "workshopicon" ) return;
+		// The tile body selects; name/label opens the workshop, controls and
+		// the checkbox have their own handlers.
+		if ( en != "workshopicon" && en != "preview" && en != "img" && en != "description" && en != "disabled" && en != "controls" ) return;
 
 		$scope.SelectedItems[file.id] = !$scope.SelectedItems[file.id];
 		if ( event ) event.stopPropagation();
