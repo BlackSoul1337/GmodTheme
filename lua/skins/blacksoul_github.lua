@@ -129,26 +129,51 @@ hook.Add("SpawnMenuCreated", "BlackSoul.Github.Fonts", function()
 	end
 
 	-- This was taken from https://steamcommunity.com/sharedfiles/filedetails/?id=938347376&searchtext=themer
-	local DProperties       = table.Copy(vgui.GetControlTable("DProperties"));
-	local __Category        = GetUpValues(DProperties.GetCategory).tblCategory;
-	DProperties.GetCategory = function(self, name, create)
+	-- The reskin depends on stock internals (the tblCategory upvalue of
+	-- GetCategory), so on any upstream refactor bail out to the stock control
+	-- instead of erroring inside SpawnMenuCreated, which would skip the
+	-- remaining hooks for the event (hook.Call does not catch errors).
+	local function ReskinDProperties()
 
-		local category = self.Categories[name];
-		if (IsValid(category)) then return category; end
-		if (!create) then return; end
-
-		-- Call to PaintListBox to override default white look.
-		category = self:GetCanvas():Add(__Category);
-		category.Label:SetText(name);
-		category.Container.Paint = function(pnl, w, h)
-			self:GetSkin():PaintListBox(pnl, w, h);
+		local ctrl = vgui.GetControlTable("DProperties");
+		if (!istable(ctrl) or !isfunction(ctrl.GetCategory)) then
+			print("[BlackSoul] DProperties reskin skipped: stock control unavailable");
+			return;
 		end
 
-		self.Categories[name] = category;
-		return category;
+		local DProperties = table.Copy(ctrl);
+		local __Category  = GetUpValues(DProperties.GetCategory).tblCategory;
+		if (!istable(__Category)) then
+			print("[BlackSoul] DProperties reskin skipped: tblCategory upvalue not found");
+			return;
+		end
+
+		DProperties.GetCategory = function(self, name, create)
+
+			local category = self.Categories[name];
+			if (IsValid(category)) then return category; end
+			if (!create) then return; end
+
+			-- Call to PaintListBox to override default white look.
+			category = self:GetCanvas():Add(__Category);
+			category.Label:SetText(name);
+			category.Container.Paint = function(pnl, w, h)
+				self:GetSkin():PaintListBox(pnl, w, h);
+			end
+
+			self.Categories[name] = category;
+			return category;
+		end
+
+		-- Base is stored on the registered table (scriptedpanels.lua); keep it
+		-- instead of hardcoding "Panel" in case upstream changes it.
+		derma.DefineControl("DProperties", "", DProperties, ctrl.Base or "Panel");
 	end
 
-	derma.DefineControl("DProperties", "", DProperties, "Panel");
+	local ok, err = pcall(ReskinDProperties);
+	if (!ok) then
+		print("[BlackSoul] DProperties reskin failed: " .. tostring(err));
+	end
 end)
 
 -- Font names are global in Derma. Restore them after a switch to an excluded
