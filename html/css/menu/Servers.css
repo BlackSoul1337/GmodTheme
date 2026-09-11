@@ -507,6 +507,10 @@ A.bglink img
 	width: 100%;
 	padding: 4px;
 	margin-bottom: 5px;
+	background-color: #0D1117;
+	color: #C9D1D9;
+	border: 1px solid #30363D;
+	border-radius: 3px;
 }
 
 .activeserver
@@ -586,6 +590,7 @@ SPAN.installgamemode:hover
 {
 	background-color: #161B22;
 	border: 1px solid #30363D;
+	color: #C9D1D9;
 
 	margin: 0 auto;
 	padding: 5px 10px;
@@ -634,6 +639,7 @@ SPAN.installgamemode:hover
 	display: -webkit-box;
 	-webkit-box-flex: 1;
 	line-height: 24px;
+	color: #F0F6FC;
 }
 .add_fav_server div.header div.fav_inputs
 {

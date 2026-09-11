@@ -77,6 +77,10 @@ DIV.page DIV.options .search_bar
 	margin-top: 12px;
 	margin-bottom: 8px;
 	width: 100%;
+	background-color: #0D1117;
+	color: #C9D1D9;
+	border: 1px solid #30363D;
+	border-radius: 3px;
 }
 
 div.ugc_content
