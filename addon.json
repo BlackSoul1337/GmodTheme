@@ -1,5 +1,11 @@
 {
   "title": "BlackSoul GMod Theme",
-  "type": "ServerContent",
-  "tags": ["realism"]
+  "type": "tool",
+  "tags": ["fun"],
+  "ignore": [
+    "*.md",
+    "menu_example.jpg",
+    ".gitignore",
+    ".gitattributes"
+  ]
 }

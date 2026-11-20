@@ -1,0 +1,3 @@
+# Local-only markdown; README is the only doc that ships
+*.md
+!README.md

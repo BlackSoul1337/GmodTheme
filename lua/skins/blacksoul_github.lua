@@ -19,9 +19,7 @@ local function RestoreDefaultDermaFonts()
 	surface.CreateFont("DermaLarge", {font = "Roboto", size = 32, weight = 500, extended = true})
 end
 
-hook.Add("SpawnMenuCreated", "BlackSoul.Github.Fonts", function()
-	if (ShouldSkipGithubDerma()) then return; end
-
+local function ApplyThemeFonts()
 	surface.CreateFont("DermaDefault", {
 		font      = "Segoe UI",
 		extended  = true,
@@ -111,6 +109,12 @@ hook.Add("SpawnMenuCreated", "BlackSoul.Github.Fonts", function()
 		additive  = false,
 		outline   = false
 	});
+end
+
+hook.Add("SpawnMenuCreated", "BlackSoul.Github.Fonts", function()
+	if (ShouldSkipGithubDerma()) then return; end
+
+	ApplyThemeFonts()
 
 	local function GetUpValues(f)
 
@@ -188,9 +192,12 @@ hook.Add("InitPostEntity", "BlackSoul.Github.RestoreExcludedFonts", function()
 end)
 
 cvars.AddChangeCallback("blacksoul_theme_all_gamemodes", function(_, _, value)
-	if (tonumber(value) != 0) then return end
+	if (tonumber(value) != 0) then
+		ApplyThemeFonts()
+	else
+		RestoreDefaultDermaFonts()
+	end
 
-	RestoreDefaultDermaFonts()
 	derma.RefreshSkins()
 end, "BlackSoul.Github.GamemodeScope")
 

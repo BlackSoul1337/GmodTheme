@@ -271,7 +271,6 @@ H1 small
 .serverlist .server:hover
 {
 	background-color: #21262D;
-	-webkit-transform: translateX(2px);
 }
 
 .serverlist .header
@@ -422,7 +421,7 @@ A.bglink img
 	/*white-space: nowrap;*/
 	overflow: hidden;
 	width: 100%;
-	letter-spacing: -1px;
+	letter-spacing: 0;
 	user-select: text;
 }
 
@@ -739,11 +738,11 @@ input[type=number]::-webkit-inner-spin-button
 }
 .flags_filter .flag.prefer
 {
-	background: #4eda6c;
+	background: #238636;
 }
 .flags_filter .flag.avoid
 {
-	background: #da4e4e;
+	background: #DA3633;
 }
 
 @media screen and (max-width: 1024px)

@@ -136,7 +136,7 @@ DIV.gridicon
 	width: 300px;
 	float: left;
 	margin: 3px;
-	//border-radius: 2px;
+	/* border-radius: 2px; */
 	background-position:center;
 }
 
@@ -175,7 +175,7 @@ DIV.disabled
 {
 	color: #fff;
 	margin: 0px 2px;
-	background-color: #0af;
+	background-color: #1F6FEB;
 	padding: 1px 5px;
 	border-radius: 2px;
 }
@@ -186,7 +186,7 @@ DIV.disabled
 
 .topnav
 {
-	 background-color: white;
+	 background-color: #161B22;
 	 padding: 5px;
 	 border-radius: 3px;
 	 font-size: 11px;
@@ -265,19 +265,19 @@ loading
 	float: right;
 	width: 16px;
 	height: 16px;
-	background: #666;
+	background: #30363D;
 	margin-left: 3px;
 	box-shadow: 0 0 10px 1px rgba( 0, 0, 0, 0.4 );
 	cursor: hand;
 }
 .news_buttons div.new {
-	background: #f55;
+	background: #F85149;
 }
 .news_buttons div.selected.new {
-	background: #fcc;
+	background: #FFA198;
 }
 .news_buttons div.selected {
-	background: #eee;
+	background: #C9D1D9;
 }
 
 .news_item {

@@ -227,21 +227,22 @@ div.centermessage label
 div.centermessage a
 {
 	display: block;
-	color: black;
+	color: #C9D1D9;
 	font-size: 16px;
 	border-radius: 4px;
-	background: #ddd;
+	background: #21262D;
+	border: 1px solid #30363D;
 	padding: 5px 10px;
 	text-align: center;
 	cursor: default;
 }
 div.centermessage a:hover
 {
-	background: #ccc;
+	background: #30363D;
 }
 div.centermessage a:active
 {
-	background: #b9b9b9;
+	background: #0D1117;
 }
 
 div.centermessage a.big
@@ -256,37 +257,37 @@ div.centermessage a:not(:last-child)
 
 div.centermessage a.warning
 {
-	background: #ca1e12;
+	background: #DA3633;
 	color: white;
 	font-weight: bold;
 }
 div.centermessage a.warning:hover
 {
-	background: #eb2719;
+	background: #F85149;
 }
 div.centermessage a.warning:active
 {
-	background: #a71b11;
+	background: #B62324;
 }
 
 div.centermessage a.create
 {
-	background: #4CAF50;
+	background: #238636;
 	color: white;
 	font-weight: bold;
 }
 div.centermessage a.create:hover
 {
-	background: #63bb66;
+	background: #2EA043;
 }
 div.centermessage a.create:active
 {
-	background: #55a158;
+	background: #1F7A33;
 }
 div.centermessage a.create.disabled
 {
-	color: #ccc;
-	background: #b1b1b1;
+	color: #8B949E;
+	background: #30363D;
 }
 
 input.preset_name
@@ -303,26 +304,27 @@ input.preset_name
 div.centermessage .button
 {
 	display: block;
-	color: black;
+	color: #C9D1D9;
 	font-size: 16px;
 	border-radius: 4px;
-	background: #ddd;
+	background: #21262D;
+	border: 1px solid #30363D;
 	padding: 5px 10px;
 }
 div.centermessage .button:hover
 {
-	background: #e3e3e3;
+	background: #30363D;
 }
 div.centermessage .button:active
 {
-	background: #c9c9c9;
+	background: #0D1117;
 }
 
 div.centermessage div.button
 {
 	margin-bottom: 2px;
 	position: relative;
-	background: #ddd;
+	background: #21262D;
 }
 div.centermessage .wstitle
 {
@@ -349,23 +351,23 @@ div.centermessage wsbut img
 }
 div.centermessage wsbut
 {
-	background: #b1b1b1;
+	background: #30363D;
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
 div.centermessage wsbut:hover
 {
-	background: #c1c1c1;
+	background: #484F58;
 }
 div.centermessage .subbed wsbut
 {
-	background: #4CAF50;
+	background: #238636;
 }
 div.centermessage .subbed
 {
-	background: #b2d6b2 !important;
+	background: #1B2E24 !important;
 }
 div.centermessage .subbed:hover
 {
-	background: #cadeca !important;
+	background: #243B2C !important;
 }

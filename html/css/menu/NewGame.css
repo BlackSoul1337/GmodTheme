@@ -52,7 +52,7 @@ UL.category LI.mapicon:hover
 UL.category LI.mapicon span
 {
 	word-break: break-all;
-	color: #6E7681;
+	color: #8B949E;
 	font-size: 12px;
 }
 
@@ -315,7 +315,7 @@ gamesettings .control-numeric input[type=text]
 	font-size: 11px;
 	font-weight: bold;
 	border-radius: 3px;
-	color: #6B727D;
+	color: #8B949E;
 	height: 26px;
 	cursor: pointer;
 	position: relative;

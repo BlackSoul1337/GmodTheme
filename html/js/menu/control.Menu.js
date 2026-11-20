@@ -1,11 +1,4 @@
 
-if (!IN_ENGINE)
-{
-	window.util = {
-		MotionSensorAvailable: function() { return false; }
-	}
-}
-
 var gScope = null;
 var GamemodeDetails = {}
 var MapIndex = {}
@@ -64,8 +57,7 @@ function MenuController( $scope, $rootScope )
 		$scope.UIScale = ClampUIScale( value );
 		$scope.ApplyUIScale();
 
-		// Persist to data/ immediately (survives unclean shutdowns, unlike the
-		// cookie store which flushes on exit).
+		// Persist to data/ immediately (survives unclean shutdowns).
 		lua.Run( 'file.Write( "blacksoul_menu_ui_scale.txt", %s )', String( $scope.UIScale ) );
 	}
 
@@ -103,12 +95,10 @@ function MenuController( $scope, $rootScope )
 		}
 	}
 
-	// The menu state has no addon Lua, so the cookie store is the persistence
-	// layer and the current value is pulled back through the menu panel.
+	// Settings persist to data/ via file.Write (visible to the client realm in
+	// the same session); the value is pulled back through the menu panel.
 	$scope.SetThemeAllGamemodes = function()
 	{
-		// file.Write lands in data/ immediately and is visible to the client
-		// realm in the same session; menu-state cookies are not.
 		lua.Run( 'file.Write( "blacksoul_theme_all_gamemodes.txt", %s )', $scope.ThemeAllGamemodes ? "1" : "0" );
 	}
 
@@ -253,41 +243,6 @@ function MenuController( $scope, $rootScope )
 	$scope.InGame = false;
 	$scope.ShowFavButton = false;
 	$scope.IsCurrentServerFav = false;
-
-	// Kinect options
-	$scope.kinect =
-	{
-		available: util.MotionSensorAvailable(),
-		show_color: false,
-		color_options: [ "topleft", "topright", "bottomleft", "bottomright" ],
-		color: "bottomleft",
-		size_options: [ "small", "medium", "large" ],
-		color_size:	"medium",
-
-		update: function()
-		{
-			// Start the kinect
-			if ( $scope.kinect.show_color )
-			{
-				lua.Run( "motionsensor.Start()" );
-			}
-
-			if ( $scope.kinect.color == "topleft" )		{ lua.Run( "RunConsoleCommand( \"sensor_color_x\", \"32\" )" ); lua.Run( "RunConsoleCommand( \"sensor_color_y\", \"32\" )" ); }
-			if ( $scope.kinect.color == "topright" )	{ lua.Run( "RunConsoleCommand( \"sensor_color_x\", \"-32\" )" ); lua.Run( "RunConsoleCommand( \"sensor_color_y\", \"32\" )" ); }
-			if ( $scope.kinect.color == "bottomright" )	{ lua.Run( "RunConsoleCommand( \"sensor_color_x\", \"-32\" )" ); lua.Run( "RunConsoleCommand( \"sensor_color_y\", \"-32\" )" ); }
-			if ( $scope.kinect.color == "bottomleft" )	{ lua.Run( "RunConsoleCommand( \"sensor_color_x\", \"32\" )" ); lua.Run( "RunConsoleCommand( \"sensor_color_y\", \"-32\" )" ); }
-
-			if ( $scope.kinect.color_size == "small" ) { lua.Run( "RunConsoleCommand( \"sensor_color_scale\", \"0.4\" )" ); }
-			if ( $scope.kinect.color_size == "medium" ) { lua.Run( "RunConsoleCommand( \"sensor_color_scale\", \"0.7\" )" ); }
-			if ( $scope.kinect.color_size == "large" ) { lua.Run( "RunConsoleCommand( \"sensor_color_scale\", \"1.0\" )" ); }
-
-			lua.Run( "RunConsoleCommand( \"sensor_color_show\", %s )", $scope.kinect.show_color ? "1" : "0" );
-		}
-	}
-
-	util.MotionSensorAvailable( function( available ) {
-		$scope.kinect.available = available;
-	} );
 }
 
 function SetInGame( bInGame )
@@ -440,8 +395,8 @@ function SetProblemCount( num, severity )
 	UpdateDigest( gScope, 100 );
 }
 
-// Pulled from the cookie store via Lua (pnlMainMenu:Call) so the persisted
-// setting is the single source of truth for the checkbox state.
+// Pulled from data/ via Lua (pnlMainMenu:Call) so the persisted setting is the
+// single source of truth for the checkbox state.
 function UpdateThemeAllGamemodes( bEnabled )
 {
 	gScope.ThemeAllGamemodes = bEnabled == true || bEnabled == "true";
@@ -454,8 +409,8 @@ function UpdateHideProblems( bEnabled )
 	UpdateDigest( gScope, 50 );
 }
 
-// Pulled from the cookie store via Lua (pnlMainMenu:Call) so the saved scale
-// survives restarts even when the menu browser keeps no localStorage.
+// Pulled from data/ via Lua (pnlMainMenu:Call) so the saved scale survives
+// restarts even when the menu browser keeps no localStorage.
 function UpdateUIScale( value )
 {
 	gScope.UIScale = ClampUIScale( value );

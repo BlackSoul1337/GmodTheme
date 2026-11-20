@@ -1,4 +1,10 @@
 
+@font-face {
+	font-family: 'Mona-Sans';
+	src: url('asset://garrysmod/resource/fonts/Mona-Sans.ttf');
+	font-weight: 100 900;
+}
+
 BODY
 {
 	overflow: hidden;
@@ -147,8 +153,9 @@ body.dark
 	line-height: 42px;
 	font-size: xx-large;
 }
-.server_info .text > div
+.server_info .text > span
 {
+	display: block;
 	text-overflow: ellipsis;
 	overflow: hidden;
 }

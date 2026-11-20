@@ -71,9 +71,8 @@ workshopicon name
 	background-color: rgba( 22, 27, 34, 0.95 );
 	font-size: 14px;
 	font-weight: bold;
-	letter-spacing: -1px;
+	letter-spacing: 0;
 	z-index: 10;
-	font-family: "Arial";
 	color: #C9D1D9;
 	height: 22px;
 }
@@ -112,7 +111,6 @@ workshopicon author, workshopicon votes, workshopicon size
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-family: "Arial";
 	color: #8B949E;
 	background-color: #161B22;
 	border-radius: 4px 0 0 0;
@@ -272,9 +270,9 @@ controls control
 {
 	font-size: 11px;
 	display: inline-block;
-	background-color: #C9D1D9;
-	border: 1px solid #8B949E;
-	color: #161B22;
+	background-color: #21262D;
+	border: 1px solid #30363D;
+	color: #C9D1D9;
 	padding: 2px 4px;
 	border-radius: 2px;
 	cursor: pointer;
@@ -290,15 +288,15 @@ controls control IMG
 
 controls control:hover
 {
-	background-color: #fff;
+	background-color: #30363D;
 	border-color: #58A6FF;
 }
 
 
 controls control.disabled
 {
-	background-color: #6E7681;
-	color: #161B22;
+	background-color: #30363D;
+	color: #8B949E;
 	cursor: default;
 }
 

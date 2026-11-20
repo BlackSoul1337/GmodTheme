@@ -143,7 +143,8 @@
 
 #NavBar number
 {
-	background: #d9d9d9;
+	background: #1F6FEB;
+	color: #fff;
 	padding: 5px;
 	position: absolute;
 	top: -10px;
@@ -153,12 +154,13 @@
 
 #NavBar number.severity1
 {
-	background: #ffc800;
+	background: #9A6700;
+	color: #fff;
 }
 
 #NavBar number.severity2
 {
-	background: #ff4000;
+	background: #DA3633;
 	color: white;
 }
 

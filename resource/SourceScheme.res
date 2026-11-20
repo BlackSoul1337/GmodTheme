@@ -19,6 +19,18 @@ Scheme
 
 		"AchievementsLightGrey"                          "79 79 79 255"
 		"AchievementsDarkGrey"                           "55 55 55 255"
+
+		// Names the closed engine may request directly; keep stock values.
+		"OffWhite"                                       "221 221 221 255"
+		"DullWhite"                                      "190 190 190 255"
+		"Orange"                                         "255 155 0 255"
+		"TransparentBlack"                               "0 0 0 128"
+		"Blank"                                          "0 0 0 0"
+		"GMod_BG_Opaque"                                 "29 33 39 250"
+		"GMod_BG"                                        "29 33 39 0"
+		"GMod_WhiteBlank"                                "255 255 255 0"
+		"SteamLightGreen"                                "157 194 80 255"
+		"AchievementsInactiveFG"                         "130 130 130 255"
 	}
 
 	///////////////////// Github Theme Starts Here ////////////////////////
@@ -155,9 +167,9 @@ Scheme
 		Frame.AutoSnapRange                              "0"
 
 		// Close button.
-		FrameTitleButton.FgColor                         "139 113 247 255"
+		FrameTitleButton.FgColor                         "88 166 255 255"
 		FrameTitleButton.BgColor                         "0 0 0 0"
-		FrameTitleButton.DisabledFgColor                 "139 113 247 255"
+		FrameTitleButton.DisabledFgColor                 "88 166 255 255"
 		FrameTitleButton.DisabledBgColor                 "0 0 0 0"
 
 		// Unused.
@@ -178,7 +190,7 @@ Scheme
 		FrameGrip.Color2                                 "Black"
 
 		// Progress bar.
-		ProgressBar.FgColor                              "139 113 247 255"
+		ProgressBar.FgColor                              "88 166 255 255"
 		ProgressBar.BgColor                              "20 24 30 255"
 
 		// Rare/unused components.
@@ -274,7 +286,8 @@ Scheme
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"16"
-				"weight"	"600"
+				"weight"	"500"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 		}
@@ -284,8 +297,9 @@ Scheme
 			{
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
-				"tall"		"18"
-				"weight"	"700"
+				"tall"		"16"
+				"weight"	"1000"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 		}
@@ -296,8 +310,9 @@ Scheme
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"16"
-				"weight"	"600"
+				"weight"	"500"
 				"underline" "1"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 		}
@@ -311,6 +326,7 @@ Scheme
 				"tall"		"14" [$OSX]
 				"tall"		"16" [$LINUX]
 				"weight"	"500"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 		}
@@ -323,6 +339,7 @@ Scheme
 				"tall"		"13"
 				"weight"	"500"
 				"dropshadow" "1"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 		}
@@ -334,6 +351,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"12"
 				"weight"	"500"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 		}
@@ -345,7 +363,8 @@ Scheme
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"18"
-				"weight"	"600"
+				"weight"	"500"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 		}
@@ -355,8 +374,9 @@ Scheme
 			{
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
-				"tall"		"18"
-				"weight"	"700"
+				"tall"		"12"
+				"weight"	"1000"
+				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
 			"1"	[$X360]
@@ -483,12 +503,11 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Source Code Pro" [$WINDOWS]
-				"name"		"Source Code Pro" [!$WINDOWS]
-				"tall"		"20" [$WINDOWS]
-				"tall"		"25" [!$WINDOWS]
+				"name"		"Lucida Console" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
+				"tall"		"10" [$WINDOWS]
+				"tall"		"14" [!$WINDOWS]
 				"weight"	"500"
-				"antialias" "1"
 			}
 		}
 
@@ -1013,7 +1032,7 @@ Scheme
 			{
 				"1"
 				{
-					"color" "Border.White"
+					"color" "Border.Subtle"
 					"offset" "0 0"
 				}
 			}
@@ -1022,7 +1041,7 @@ Scheme
 			{
 				"1"
 				{
-					"color" "Border.White"
+					"color" "Border.Subtle"
 					"offset" "0 0"
 				}
 			}
@@ -1031,7 +1050,7 @@ Scheme
 			{
 				"1"
 				{
-					"color" "Border.White"
+					"color" "Border.Subtle"
 					"offset" "0 0"
 				}
 			}
@@ -1040,7 +1059,7 @@ Scheme
 			{
 				"1"
 				{
-					"color" "Border.White"
+					"color" "Border.Subtle"
 					"offset" "0 0"
 				}
 			}
@@ -1252,7 +1271,6 @@ Scheme
 		"1"		"resource/HALFLIFE2.ttf"
 		"2"		"resource/HL2EP2.ttf"
 		"3"		"resource/marlett.ttf"
-		"4"     "resource/SourceCodePro-VariableFont_wght.ttf"
 		"4"     "resource/Mona-Sans.ttf"
 	}
 }

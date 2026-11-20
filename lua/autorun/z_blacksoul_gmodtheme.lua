@@ -3,9 +3,9 @@ if SERVER then
 	return
 end
 
--- Persisted as a cookie by the menu HTML (the menu state runs no addon Lua,
--- but cookies are shared between states). The convar mirrors it so the skin
--- and console can read it in the client realm.
+-- Persisted to data/ by the menu HTML (the menu state runs no addon Lua).
+-- The convar mirrors it so the skin and console can read it in the client
+-- realm; the cookie read below is a legacy fallback for old installs.
 if (!GetConVar("blacksoul_theme_all_gamemodes")) then
 	CreateClientConVar("blacksoul_theme_all_gamemodes", "0", false, false, "Apply the BlackSoul Derma theme to Helix and other excluded gamemodes.")
 end

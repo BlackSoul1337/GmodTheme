@@ -1,3 +1,9 @@
+@font-face {
+	font-family: 'Mona-Sans';
+	src: url('asset://garrysmod/resource/fonts/Mona-Sans.ttf');
+	font-weight: 100 900;
+}
+
 BODY
 {
 	overflow: hidden;
@@ -40,13 +46,13 @@ UL.category LI:first-child
 	list-style: none;
 	padding: 5px;
 	font-size: 32px;
-	color: #444;
+	color: #F0F6FC;
 }
 
 UL.category LI:first-child small
 {
 	font-size: 14px;
-	color: #999;
+	color: #8B949E;
 }
 
 UL.category LI.icon
@@ -79,37 +85,33 @@ PREVIEW > img {
 
 .btn-primary
 {
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#05C));
-	border: 1px solid #CCC;
-	border-color: #05C #05C #003580;
+	background-color: #1F6FEB;
+	border: 1px solid #30363D;
 	color: white;
 	border-radius: 6px;
 	cursor: pointer;
 	vertical-align: middle;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .btn-primary:hover
 {
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2ae), to(#27e)); 
+	background-color: #388BFD;
 }
 
 .btn-back
 {
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#08C), to(#05C));
-	border: 1px solid #CCC;
-	border-color: #05C #05C #003580;
-	color: white;
+	background-color: #21262D;
+	border: 1px solid #30363D;
+	color: #C9D1D9;
 	border-radius: 3px;
 	cursor: pointer;
 	vertical-align: middle;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 	height: 24px;
 }
 
 .btn-back:hover
 {
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2ae), to(#27e)); 
+	background-color: #30363D;
 }
 
 DIV.gridicon
@@ -120,8 +122,8 @@ DIV.gridicon
 	width: 300px;
 	float: left;
 	margin: 3px;
-	//border-radius: 2px;
-	background-position:center; 
+	/* border-radius: 2px; */
+	background-position:center;
 }
 
 DIV.gridicon name
@@ -138,9 +140,9 @@ DIV.gridicon name
 	overflow: hidden;
 	white-space: nowrap;
 	text-align: left;
-	color: #333;
+	color: #C9D1D9;
 	padding: 8px;
-	background-color: rgba( 255, 255, 255, 0.8 );
+	background-color: rgba( 22, 27, 34, 0.95 );
 }
 
 DIV.disabled name
@@ -157,7 +159,7 @@ DIV.disabled
 
 .whiterounded
 {
-	background-color: white;
+	background-color: #161B22;
 	border-radius: 4px;
 }
 
@@ -218,8 +220,8 @@ workshopmessage
 
 .options UL
 {
-	background-color: #5bF;
-	border: 3px solid #fff;
+	background-color: #161B22;
+	border: 1px solid #30363D;
 	margin: 8px;
 	border-radius: 6px;
 	list-style: none;
@@ -262,21 +264,21 @@ workshopmessage
 
 .options UL LI button
 {
-	border: 1px solid rgba( 255, 255, 255, 0.5 );
+	border: 1px solid #30363D;
 	border-radius: 2px;
 	padding: 4px 8px;
 	width: 100%;
-	background-color: rgba( 255, 255, 255, 0.5 );
+	background-color: #21262D;
 	margin: 0px;
 	cursor: pointer;
 	font-weight: bolder;
 	font-size: 18px;
-	color: #fff;
+	color: #C9D1D9;
 }
 
 .options UL LI button:hover
 {
-	background-color: rgba( 255, 255, 255, 0.8 );
+	background-color: #30363D;
 }
 
 .options UL LI A

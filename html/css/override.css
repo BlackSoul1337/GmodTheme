@@ -1,6 +1,18 @@
 
+@font-face {
+	font-family: 'Mona-Sans';
+	src: url('asset://garrysmod/resource/fonts/Mona-Sans.ttf');
+	font-weight: 100 900;
+}
+
 ::-webkit-scrollbar {
-  display: none;
+	width: 8px;
+	height: 8px;
+	background-color: #0D1117;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #30363D;
+	border-radius: 4px;
 }
 
 * {
@@ -46,6 +58,7 @@
 	color: white;
 	fill: white;
 	display: inline-block;
+	text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
 	-webkit-transition: color 0.12s ease, -webkit-transform 0.12s ease, text-shadow 0.12s ease;
 }
 
@@ -302,7 +315,8 @@ input[type=checkbox]:disabled + label::before {
 .ugc_settings input[type=radio],
 .centermessage input[type=checkbox],
 .centermessage input[type=radio],
-.theme-settings input[type=checkbox]
+.theme-settings input[type=checkbox],
+workshopicon input[type=checkbox]
 {
 	-webkit-appearance: none;
 	background: #0D1117;
@@ -334,7 +348,8 @@ input[type=checkbox]:disabled + label::before {
 .ugc_settings input[type=radio]:checked,
 .centermessage input[type=checkbox]:checked,
 .centermessage input[type=radio]:checked,
-.theme-settings input[type=checkbox]:checked
+.theme-settings input[type=checkbox]:checked,
+workshopicon input[type=checkbox]:checked
 {
 	background: #1F6FEB;
 	border-color: #58A6FF;
@@ -342,7 +357,8 @@ input[type=checkbox]:disabled + label::before {
 
 .ugc_settings input[type=checkbox]:checked:after,
 .centermessage input[type=checkbox]:checked:after,
-.theme-settings input[type=checkbox]:checked:after
+.theme-settings input[type=checkbox]:checked:after,
+workshopicon input[type=checkbox]:checked:after
 {
 	content: '\2713';
 	color: #FFFFFF;
