@@ -131,12 +131,22 @@ function MenuController( $scope, $rootScope )
 			return;
 		}
 
+		// History groups servers by gamemode, so the same address can appear
+		// twice; dedupe before sorting or duplicates crowd out recent ones.
 		var allServers = [];
+		var seen = {};
 		for ( var gmName in ServerTypes['history'].gamemodes )
 		{
 			var gm = ServerTypes['history'].gamemodes[ gmName ];
-			if ( gm.servers && gm.servers.length > 0 )
-				allServers = allServers.concat( gm.servers );
+			if ( !gm.servers ) continue;
+
+			for ( var i = 0; i < gm.servers.length; i++ )
+			{
+				var srv = gm.servers[ i ];
+				if ( seen[ srv.address ] ) continue;
+				seen[ srv.address ] = true;
+				allServers.push( srv );
+			}
 		}
 
 		allServers.sort( function( a, b ) { return ( b.lastplayed || 0 ) - ( a.lastplayed || 0 ); } );
@@ -480,7 +490,7 @@ var gmodInteractiveSoundSelector = [
 	".gitpopup li",
 	".gamemode",
 	".serverlist .server",
-	"#RecentServers .server-item",
+	".theme-recent .server-item",
 	".serverinfo button",
 	".bglink",
 	".installgamemode",

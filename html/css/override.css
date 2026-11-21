@@ -18,9 +18,6 @@
 	padding-left: 48px;
 	color: white;
 	fill: white;
-	/* Local readability scrim behind the option rail only; fades out before
-	   the artwork and the news card. Not the full-viewport subpage dim. */
-	background: -webkit-linear-gradient( left, rgba( 13, 17, 23, 0.55 ), rgba( 13, 17, 23, 0 ) 55% );
 }
 
 .mainmenu h1 {
@@ -40,7 +37,7 @@
 	color: rgba(255, 255, 255, 0.85);
 	font-size: 18px;
 	font-weight: 700;
-	margin-left: 4px;
+	margin-left: 0;
 	text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
 }
 
@@ -113,15 +110,30 @@
 }
 
 #NavBar {
-	background-color: #161B22;
-	border-top: 1px solid #30363D;
+	/* Edge dissolve: the bar melts into the artwork instead of cutting it
+	   with a hard top border. */
+	background: -webkit-linear-gradient( top, rgba( 22, 27, 34, 0 ), #161B22 14px );
 }
 
-.theme-settings-toggle svg {
+#NavBar .smallicon svg {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	margin: -16px 0 0 -16px;
+}
+
+/* Stroke-based line icons (gear, gamepad) match the outline octicons; the
+   .button fill rules must not fill them in. */
+.lineicon, .lineicon * {
+	fill: none !important;
+	stroke: #fff;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.button:hover .lineicon, .button:hover .lineicon * {
+	stroke: #B0BBBD !important;
 }
 
 #NavBar .button:active {
@@ -132,7 +144,7 @@
 /* Higher specificity than .gitpopup so the popup keeps its own padding/width */
 .gitpopup.theme-settings {
 	bottom: 56px;
-	width: 300px;
+	width: 320px;
 	padding: 14px;
 	color: #C9D1D9;
 	box-sizing: border-box;
@@ -201,6 +213,70 @@
 	color: #8B949E;
 	font-size: 11px;
 	margin-top: 8px;
+}
+
+.theme-recent {
+	margin-top: 12px;
+	border-top: 1px solid #30363D;
+	padding-top: 10px;
+}
+
+.theme-recent-title {
+	color: #8B949E;
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+
+.theme-recent .rs-loading {
+	color: #8B949E;
+	font-size: 12px;
+	padding: 2px;
+}
+
+.theme-recent .server-item {
+	background-color: #21262D;
+	border: 1px solid #30363D;
+	border-radius: 4px;
+	padding: 6px 10px;
+	margin-bottom: 3px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.theme-recent .server-item:last-child {
+	margin-bottom: 0;
+}
+
+.theme-recent .server-item:hover {
+	background-color: #30363D;
+	border-color: #58A6FF;
+}
+
+.theme-recent .server-name {
+	display: block;
+	color: #C9D1D9;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.theme-recent .server-info {
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	color: #8B949E;
+	font-size: 12px;
+	margin-top: 2px;
+}
+
+.theme-recent .server-map {
+	max-width: 70%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .gitpopup

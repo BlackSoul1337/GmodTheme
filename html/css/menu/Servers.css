@@ -878,7 +878,9 @@ name .favbutton
 	height: 16px;
 	width: 16px;
 	display: inline-block;
-	/* Stock glyph is dark for the light theme; force a light gray on dark. */
+	/* Stock glyph is dark for the light theme; force a light gray on dark.
+	   The menu CEF is old Chromium: unprefixed filter is ignored there. */
+	-webkit-filter: brightness( 0 ) invert( 0.8 );
 	filter: brightness( 0 ) invert( 0.8 );
 }
 name .favbutton:hover
@@ -888,6 +890,7 @@ name .favbutton:hover
 name .favbutton.favorited
 {
 	background: url( '../../img/favourite.png' );
+	-webkit-filter: none;
 	filter: none;
 }
 name .favbutton.favorited:hover

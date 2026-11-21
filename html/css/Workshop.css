@@ -249,7 +249,9 @@ controls control
 controls control IMG
 {
 	padding-top: 3px;
-	/* Stock glyphs are dark for the light theme; force a light gray on dark. */
+	/* Stock glyphs are dark for the light theme; force a light gray on dark.
+	   The menu CEF is old Chromium: unprefixed filter is ignored there. */
+	-webkit-filter: brightness( 0 ) invert( 0.8 );
 	filter: brightness( 0 ) invert( 0.8 );
 }
 

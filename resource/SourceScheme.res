@@ -283,8 +283,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"16"
 				"weight"	"500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -295,8 +295,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"18"
 				"weight"	"700"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -307,8 +307,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"16"
 				"weight"	"500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -320,8 +320,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"12" [$WINDOWS]
 				"tall"		"14" [$OSX]
 				"tall"		"16" [$LINUX]
@@ -334,8 +334,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"13"
 				"weight"	"500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -347,8 +347,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"12"
 				"weight"	"500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -360,8 +360,8 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"18"
 				"weight"	"500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -372,8 +372,8 @@ Scheme
 		{
 			"1"	[$WIN32]
 			{
-				"name"		"Segoe UI" [$WINDOWS]
-				"name"		"Segoe UI" [!$WINDOWS]
+				"name"		"Tahoma" [$WINDOWS]
+				"name"		"Verdana" [!$WINDOWS]
 				"tall"		"18"
 				"weight"	"700"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -381,7 +381,7 @@ Scheme
 			}
 			"1"	[$X360]
 			{
-				"name"		"Segoe UI"
+				"name"		"Tahoma"
 				"tall"		"24"
 				"weight"	"500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -393,7 +393,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"			"Segoe UI"
+				"name"			"Tahoma"
 				"tall"			"20"
 				"tall_hidef"	"28"
 				"weight"		"500"
@@ -406,7 +406,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"			"Segoe UI"
+				"name"			"Tahoma"
 				"tall"			"20"
 				"tall_hidef"	"28"
 				"weight"		"500"
@@ -657,7 +657,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana" [$POSIX]
 				"tall"		"16"
 				"weight"	"500"
@@ -668,7 +668,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI"
+				"name"		"Tahoma"
 				"tall"		"16"
 				"weight"	"500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -679,7 +679,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"tall"		"16"
 				"weight"	"900"
@@ -690,7 +690,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold Italic" [$POSIX]
 				"tall"		"16"
 				"weight"	"900"
@@ -753,7 +753,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"2000"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -766,7 +766,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"2000"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -779,7 +779,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -793,7 +793,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -807,7 +807,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -821,7 +821,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -835,7 +835,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana" [$POSIX]
 				"weight"		"1000"
 				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
@@ -850,7 +850,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI" [!$POSIX]
+				"name"		"Tahoma" [!$POSIX]
 				"name"		"Verdana" [$POSIX]
 				"tall"		"35"
 				"tall_lodef"	"40"
@@ -865,7 +865,7 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Segoe UI"
+				"name"		"Tahoma"
 				"tall"		"16"
 				"weight"	"0"
 				"range"		"0x0000 0x052F" //	Basic Latin, Latin Extended, Cyrillic
@@ -873,7 +873,7 @@ Scheme
 			}
 			"2"
 			{
-				"name"		"Segoe UI"
+				"name"		"Tahoma"
 				"tall"		"16"
 				"weight"	"0"
 				"range"		"0x0000 0x052F" //	Basic Latin, Latin Extended, Cyrillic
@@ -881,7 +881,7 @@ Scheme
 			}
 			"3"
 			{
-				"name"		"Segoe UI"
+				"name"		"Tahoma"
 				"tall"		"16"
 				"weight"	"0"
 				"range"		"0x0000 0x052F" //	Basic Latin, Latin Extended, Cyrillic
@@ -890,7 +890,7 @@ Scheme
 			}
 			"4"
 			{
-				"name"		"Segoe UI"
+				"name"		"Tahoma"
 				"tall"		"19"
 				"weight"	"0"
 				"range"		"0x0000 0x052F" //	Basic Latin, Latin Extended, Cyrillic
@@ -899,7 +899,7 @@ Scheme
 			}
 			"5"
 			{
-				"name"		"Segoe UI"
+				"name"		"Tahoma"
 				"tall"		"19"
 				"weight"	"0"
 				"range"		"0x0000 0x052F" //	Basic Latin, Latin Extended, Cyrillic
