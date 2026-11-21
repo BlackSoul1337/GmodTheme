@@ -303,10 +303,10 @@ loading
 	cursor: hand;
 }
 .news_item div {
-	background: -webkit-linear-gradient( top, rgba( 13, 17, 23, 0.55 ), rgba( 13, 17, 23, 0.92 ) );
+	background: -webkit-linear-gradient( top, rgba( 13, 17, 23, 0 ), rgba( 13, 17, 23, 0.92 ) );
 	display: block;
 	color: #fff;
-	padding: 5px;
+	padding: 26px 8px 6px;
 	font-size: x-large;
 	text-align: right;
 	cursor: default;

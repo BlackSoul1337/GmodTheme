@@ -575,6 +575,11 @@ function AddServer( type, id, ping, name, desc, map, players, maxplayers, botpla
 
 	UpdateGamemodeInfo( data, type );
 
+	// The engine pings every history server before FinishedServers, so show
+	// rows in the navbar panel as they resolve instead of waiting for all.
+	if ( type == 'history' && gScope && gScope.UpdateRecentServers )
+		gScope.UpdateRecentServers();
+
 	gm.num_servers += 1;
 	gm.num_players += data.players;
 

@@ -878,6 +878,8 @@ name .favbutton
 	height: 16px;
 	width: 16px;
 	display: inline-block;
+	/* Stock glyph is dark for the light theme; force a light gray on dark. */
+	filter: brightness( 0 ) invert( 0.8 );
 }
 name .favbutton:hover
 {
@@ -886,6 +888,7 @@ name .favbutton:hover
 name .favbutton.favorited
 {
 	background: url( '../../img/favourite.png' );
+	filter: none;
 }
 name .favbutton.favorited:hover
 {

@@ -18,6 +18,9 @@
 	padding-left: 48px;
 	color: white;
 	fill: white;
+	/* Local readability scrim behind the option rail only; fades out before
+	   the artwork and the news card. Not the full-viewport subpage dim. */
+	background: -webkit-linear-gradient( left, rgba( 13, 17, 23, 0.55 ), rgba( 13, 17, 23, 0 ) 55% );
 }
 
 .mainmenu h1 {
@@ -35,7 +38,7 @@
 
 .mainmenu .brand-subtitle {
 	color: rgba(255, 255, 255, 0.85);
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 700;
 	margin-left: 4px;
 	text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
@@ -376,7 +379,18 @@ workshopicon.selected
 
 workshopicon.selected:before
 {
-	content: none;
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 44px;
+	height: 44px;
+	margin: -22px 0 0 -22px;
+	background: rgba( 13, 17, 23, 0.78 ) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'><path fill='rgb(255,255,255)' fill-rule='evenodd' d='M8 16A8 8 0 108 0a8 8 0 000 16zm3.78-9.72a.75.75 0 00-1.06-1.06L6.75 9.19 5.28 7.72a.75.75 0 00-1.06 1.06l2 2a.75.75 0 001.06 0l4.5-4.5z'/></svg>") center / 26px no-repeat;
+	border: 2px solid #58A6FF;
+	border-radius: 50%;
+	z-index: 7;
+	pointer-events: none;
 }
 
 workshopicon.selected:after

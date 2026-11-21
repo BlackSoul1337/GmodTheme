@@ -249,6 +249,8 @@ controls control
 controls control IMG
 {
 	padding-top: 3px;
+	/* Stock glyphs are dark for the light theme; force a light gray on dark. */
+	filter: brightness( 0 ) invert( 0.8 );
 }
 
 controls control:hover
