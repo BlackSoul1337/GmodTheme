@@ -169,7 +169,7 @@ workshopicon description
 	bottom: 0px;
 	right: 0;
 	text-align: left;
-	background-color: rgba( 31, 111, 235, 0.92 );
+	background-color: rgba( 13, 17, 23, 0.92 );
 	font-size: 11px;
 	padding: 32px 8px;
 	color: #fff;
@@ -178,41 +178,6 @@ workshopicon description
 
 	opacity: 0;
 	-webkit-transition: opacity 100ms ease-in 0ms;
-}
-
-workshopicon .checkbox
-{
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	margin: 0;
-	z-index: 32;
-	height: 19px;
-	width: 19px;
-	-webkit-appearance: none;
-	background: #0D1117;
-	border: 1px solid #6E7681;
-	box-sizing: border-box;
-	opacity: 1;
-	pointer-events: auto;
-}
-
-workshopicon .checkbox:checked
-{
-	background: #1F6FEB;
-	border-color: #58A6FF;
-}
-
-workshopicon .checkbox:checked:after
-{
-	content: '\2713';
-	color: #FFFFFF;
-	font-size: 10px;
-	font-weight: 900;
-	left: 1px;
-	line-height: 11px;
-	position: absolute;
-	top: 0;
 }
 
 workshopicon:hover description

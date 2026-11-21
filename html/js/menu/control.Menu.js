@@ -31,6 +31,15 @@ function MenuController( $scope, $rootScope )
 
 	gScope.Gamemode = "";
 
+	// The dim overlay lives on <html>, outside the zoomed body: body zoom
+	// scales fixed-position descendants and would leave undimmed strips.
+	$rootScope.$on( "$viewContentLoaded", function()
+	{
+		var cl = document.documentElement.classList;
+		if ( document.querySelector( "DIV.page" ) ) cl.add( "subpage" );
+		else cl.remove( "subpage" );
+	} );
+
 	$scope.ApplyUIScale = function()
 	{
 		$scope.UIScale = ClampUIScale( $scope.UIScale );

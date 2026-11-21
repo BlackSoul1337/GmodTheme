@@ -3,7 +3,7 @@ BODY
 {
 	overflow: hidden;
 	background-color: transparent;
-	font-family: 'Segoe UI', 'Mona-Sans', Arial, sans-serif;
+	font-family: 'Segoe UI', Arial, sans-serif;
 	font-weight: 600;
 	-webkit-user-select: none;
 	margin: 0;
@@ -77,9 +77,10 @@ DIV.page
 	background: transparent;
 }
 
-/* Full-viewport dim for subpages only (DIV.page is absent on the main menu).
-   fixed, so it covers the edges that an inset absolute box misses on wide/2K. */
-DIV.page:before
+/* Full-viewport dim for subpages only; control.Menu.js toggles .subpage on
+   route load. On <html>, not inside the zoomed body: zoom scales fixed
+   descendants, which would leave undimmed strips below 100% UI scale. */
+html.subpage:before
 {
 	content: "";
 	position: fixed;

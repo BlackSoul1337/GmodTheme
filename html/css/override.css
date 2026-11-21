@@ -10,7 +10,7 @@
 }
 
 * {
-	font-family: 'Segoe UI', 'Mona-Sans', Arial, sans-serif;
+	font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 .mainmenu {
@@ -22,7 +22,7 @@
 
 .mainmenu h1 {
 	font-size: 76px;
-	font-family: 'Mona-Sans', 'Segoe UI', Arial, sans-serif;
+	font-family: 'Segoe UI', Arial, sans-serif;
 	font-weight: 800;
 	margin-bottom: 2px;
 	letter-spacing: 0;
@@ -36,8 +36,6 @@
 	color: rgba(255, 255, 255, 0.72);
 	font-size: 16px;
 	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
 	margin-left: 4px;
 	text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
 }
@@ -397,4 +395,18 @@ workshopicon.selected:after
 	background-color: #1F6FEB;
 	z-index: 6;
 	pointer-events: none;
+}
+
+:focus-visible {
+	outline: 2px solid #58A6FF;
+	outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		-webkit-transition: none !important;
+		transition: none !important;
+		-webkit-animation: none !important;
+		animation: none !important;
+	}
 }

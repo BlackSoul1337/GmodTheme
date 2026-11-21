@@ -1264,7 +1264,7 @@ Scheme
 		"1"		"resource/HALFLIFE2.ttf"
 		"2"		"resource/HL2EP2.ttf"
 		"3"		"resource/marlett.ttf"
-		"4"     "resource/SourceCodePro-VariableFont_wght.ttf"
-		"5"     "resource/Mona-Sans.ttf"
+		// Static Regular instance: the variable font registers as "Source Code Pro ExtraLight" and VGUI cannot pick fvar instances.
+		"4"     "resource/fonts/SourceCodePro-Regular.ttf"
 	}
 }
