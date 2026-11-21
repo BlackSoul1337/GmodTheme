@@ -37,7 +37,9 @@
 	color: rgba(255, 255, 255, 0.85);
 	font-size: 18px;
 	font-weight: 700;
-	margin-left: 0;
+	/* Optical alignment: the 76px "G" has a wider left side bearing than the
+	   18px "B", so equal box edges read as the subtitle drifting left. */
+	margin-left: 4px;
 	text-shadow: 0 0 14px rgba(0, 0, 0, 0.55);
 }
 
@@ -110,9 +112,9 @@
 }
 
 #NavBar {
-	/* Edge dissolve: the bar melts into the artwork instead of cutting it
-	   with a hard top border. */
-	background: -webkit-linear-gradient( top, rgba( 22, 27, 34, 0 ), #161B22 14px );
+	/* Edge dissolve: just softens the top border. Keep it shorter than the
+	   icon offset (buttons start 5px down) so icons sit on solid background. */
+	background: -webkit-linear-gradient( top, rgba( 22, 27, 34, 0 ), #161B22 6px );
 }
 
 #NavBar .smallicon svg {
@@ -127,7 +129,7 @@
 .lineicon, .lineicon * {
 	fill: none !important;
 	stroke: #fff;
-	stroke-width: 2;
+	stroke-width: 1.5;
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
@@ -212,13 +214,13 @@
 .theme-settings-note {
 	color: #8B949E;
 	font-size: 11px;
-	margin-top: 8px;
+	margin-top: 6px;
 }
 
 .theme-recent {
-	margin-top: 12px;
+	margin-top: 8px;
 	border-top: 1px solid #30363D;
-	padding-top: 10px;
+	padding-top: 8px;
 }
 
 .theme-recent-title {
