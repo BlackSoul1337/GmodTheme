@@ -7,6 +7,35 @@ var ServerTypes = {};
 var FirstTime = true;
 var UpdateInterval = undefined;
 
+function EnsureServerType( type )
+{
+	if ( !ServerTypes[type] )
+		ServerTypes[type] = { gamemodes: {}, list: [] };
+}
+
+// Query the Steam play history once at boot so the navbar quick-join panel
+// has data before the servers page is ever opened.
+function PreloadHistoryAtBoot()
+{
+	EnsureServerType( 'history' );
+
+	RequestNum['history'] = ( RequestNum['history'] || 0 ) + 1;
+
+	if ( !IN_ENGINE ) TestUpdateServers( 'history', RequestNum['history'] );
+
+	lua.Run( "GetServers( %s, %s )", 'history', String( RequestNum['history'] ) );
+
+	RootScope = RootScope || gScope;
+	if ( RootScope )
+	{
+		if ( !RootScope.Refreshing ) RootScope.Refreshing = {};
+		if ( !RootScope.ServerCount ) RootScope.ServerCount = {};
+		RootScope.Refreshing['history'] = "true";
+		RootScope.ServerCount['history'] = 0;
+		UpdateDigest( RootScope, 50 );
+	}
+}
+
 function StripWeirdSymbols( name )
 {
 	// Weird 2 byte symbols
@@ -237,6 +266,15 @@ function ControllerServers( $scope, $element, $rootScope, $location )
 		if ( FirstTime )
 		{
 			$scope.Refresh();
+
+			if ( type == 'history' )
+			{
+				setTimeout( function() { if ( gScope && gScope.UpdateRecentServers ) gScope.UpdateRecentServers(); }, 1000 );
+			}
+		}
+		else if ( type == 'history' )
+		{
+			if ( gScope && gScope.UpdateRecentServers ) gScope.UpdateRecentServers();
 		}
 	}
 
@@ -358,6 +396,10 @@ function ControllerServers( $scope, $element, $rootScope, $location )
 function FinishedServers( type )
 {
 	RootScope.Refreshing[type] = "false";
+
+	if ( type == 'history' && gScope && gScope.UpdateRecentServers )
+		gScope.UpdateRecentServers();
+
 	UpdateDigest( RootScope, 50 );
 }
 

@@ -4,7 +4,7 @@ BODY
 	overflow: hidden;
 	background-color: transparent;
 	font-family: 'Segoe UI', Arial, sans-serif;
-	font-weight: 600;
+	font-weight: 400;
 	-webkit-user-select: none;
 	margin: 0;
 	padding: 0;
@@ -22,7 +22,7 @@ INPUT
 INPUT.searchbox, INPUT.gm_search
 {
 	border: 1px solid #30363D;
-	border-radius: 3px;
+	border-radius: 4px;
 	height: 24px;
 	margin-top: 6px;
 	padding: 4px;
@@ -52,7 +52,7 @@ INPUT.gm_search
 INPUT[type="text"], INPUT[type="number"]
 {
 	border: 1px solid #30363D;
-	border-radius: 2px;
+	border-radius: 4px;
 	outline-color: #58A6FF;
 }
 
@@ -139,7 +139,7 @@ DIV.gridicon
 	width: 300px;
 	float: left;
 	margin: 3px;
-	/* border-radius: 2px; */
+	/* border-radius: 4px; */
 	background-position:center;
 }
 
@@ -180,7 +180,7 @@ DIV.disabled
 	margin: 0px 2px;
 	background-color: #1F6FEB;
 	padding: 1px 5px;
-	border-radius: 2px;
+	border-radius: 4px;
 }
 
 .topnav A:hover
@@ -191,7 +191,7 @@ DIV.disabled
 {
 	 background-color: #161B22;
 	 padding: 5px;
-	 border-radius: 3px;
+	 border-radius: 4px;
 	 font-size: 11px;
 }
 
@@ -248,7 +248,7 @@ loading
 	font-weight: bold;
 	padding: 5px;
 	background-color: rgba( 0, 0, 0, 1.0 );
-	border-radius: 3px;
+	border-radius: 4px;
 	cursor: pointer;
 	z-index: 1000;
 }
@@ -303,7 +303,7 @@ loading
 	cursor: hand;
 }
 .news_item div {
-	background: rgba( 0, 0, 0, 0.4 );
+	background: -webkit-linear-gradient( top, rgba( 13, 17, 23, 0.55 ), rgba( 13, 17, 23, 0.92 ) );
 	display: block;
 	color: #fff;
 	padding: 5px;

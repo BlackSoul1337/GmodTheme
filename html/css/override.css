@@ -26,6 +26,7 @@
 	font-weight: 800;
 	margin-bottom: 2px;
 	letter-spacing: 0;
+	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
 }
 
 .mainmenu .brand {
@@ -33,7 +34,7 @@
 }
 
 .mainmenu .brand-subtitle {
-	color: rgba(255, 255, 255, 0.72);
+	color: rgba(255, 255, 255, 0.85);
 	font-size: 16px;
 	font-weight: 700;
 	margin-left: 4px;
@@ -50,7 +51,7 @@
 	color: white;
 	fill: white;
 	display: inline-block;
-	text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 14px rgba(0, 0, 0, 0.6);
 	-webkit-transition: color 0.12s ease, -webkit-transform 0.12s ease, text-shadow 0.12s ease;
 }
 
@@ -117,7 +118,7 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -11px 0 0 -11px;
+	margin: -16px 0 0 -16px;
 }
 
 #NavBar .button:active {
@@ -290,7 +291,7 @@ input[type=checkbox] + label::before {
   width: 12px;
   height: 12px;
   border: 1px solid #858585;
-  border-radius: 3px;
+  border-radius: 4px;
   margin: 4px 0;
   margin-right: 8px;
 }
@@ -341,22 +342,17 @@ input[type=checkbox]:disabled + label::before {
 .centermessage input[type=radio]:checked,
 .theme-settings input[type=checkbox]:checked
 {
-	background: #1F6FEB;
+	background-color: #1F6FEB;
 	border-color: #58A6FF;
 }
 
-.ugc_settings input[type=checkbox]:checked:after,
-.centermessage input[type=checkbox]:checked:after,
-.theme-settings input[type=checkbox]:checked:after
+.ugc_settings input[type=checkbox]:checked,
+.centermessage input[type=checkbox]:checked,
+.theme-settings input[type=checkbox]:checked
 {
-	content: '\2713';
-	color: #FFFFFF;
-	font-size: 10px;
-	font-weight: 900;
-	left: 1px;
-	line-height: 11px;
-	position: absolute;
-	top: 0;
+	background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'><path style='fill: rgb(255,255,255);' d='M 74 285 Q 206 422 206 422 L 442 129 L 377 77 L 200 295 L 131 229 L 74 285' /></svg>");
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 .ugc_settings input[type=radio]:checked:after,

@@ -151,7 +151,7 @@ UL.games_list LI
 	white-space: nowrap;
 	overflow: hidden;
 	display: block;
-	border-radius: 2px;
+	border-radius: 4px;
 	margin: 0;
 	margin-right: 2px;
 	margin-bottom: 2px;
@@ -222,7 +222,87 @@ UL.language_list LI
 ::-webkit-scrollbar-thumb
 {
 	background-color: rgb( 180, 180, 180);
-	border-radius: 2px;
+	border-radius: 4px;
+}
+
+#RecentServers
+{
+	position: absolute;
+	bottom: 56px;
+	right: 10px;
+	width: 280px;
+	background-color: #161B22;
+	border: 1px solid #30363D;
+	border-radius: 6px;
+	padding: 8px;
+	z-index: 999;
+	box-shadow: 0 8px 22px rgba( 0, 0, 0, 0.34 );
+}
+
+#RecentServers .rs-header
+{
+	color: #8B949E;
+	font-size: 11px;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+
+#RecentServers .rs-loading
+{
+	color: #8B949E;
+	font-size: 12px;
+	padding: 4px 2px;
+}
+
+#RecentServers .server-item
+{
+	background-color: #21262D;
+	border: 1px solid #30363D;
+	border-radius: 4px;
+	padding: 6px 10px;
+	margin-bottom: 3px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+#RecentServers .server-item:last-child
+{
+	margin-bottom: 0;
+}
+
+#RecentServers .server-item:hover
+{
+	background-color: #30363D;
+	border-color: #58A6FF;
+}
+
+#RecentServers .server-name
+{
+	display: block;
+	color: #C9D1D9;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#RecentServers .server-info
+{
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	color: #8B949E;
+	font-size: 11px;
+	margin-top: 2px;
+}
+
+#RecentServers .server-map
+{
+	max-width: 70%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /* 800x600 and lower */

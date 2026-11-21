@@ -97,7 +97,7 @@ PREVIEW > img {
 	background-color: #21262D;
 	border: 1px solid #30363D;
 	color: #C9D1D9;
-	border-radius: 3px;
+	border-radius: 4px;
 	cursor: pointer;
 	vertical-align: middle;
 	height: 24px;
@@ -116,7 +116,7 @@ DIV.gridicon
 	width: 300px;
 	float: left;
 	margin: 3px;
-	/* border-radius: 2px; */
+	/* border-radius: 4px; */
 	background-position:center;
 }
 
@@ -226,7 +226,7 @@ workshopmessage
 {
 	padding: 1px;
 	margin: 0px;
-	border-radius: 2px;
+	border-radius: 4px;
 	-webkit-transition: all 0.2s;
 	color: #fff;
 	font-weight: bold;
@@ -259,7 +259,7 @@ workshopmessage
 .options UL LI button
 {
 	border: 1px solid #30363D;
-	border-radius: 2px;
+	border-radius: 4px;
 	padding: 4px 8px;
 	width: 100%;
 	background-color: #21262D;

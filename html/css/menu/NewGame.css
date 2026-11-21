@@ -38,7 +38,7 @@ UL.category LI.mapicon
 	margin: 2px;
 	cursor: pointer;
 	vertical-align: top;
-	border-radius: 8px;
+	border-radius: 6px;
 	-webkit-transition: background-color 0.12s ease, -webkit-transform 0.12s ease, box-shadow 0.12s ease;
 }
 
@@ -82,7 +82,7 @@ UL.category LI.mapicon span
 UL.category LI.mapicon.selected
 {
 	background-color: rgba( 88, 166, 255, 0.22 );
-	border-radius: 3px;
+	border-radius: 4px;
 }
 
 UL.category LI.mapicon.selected span
@@ -129,7 +129,7 @@ gamesettings select
 {
 	width: 100%;
 	padding: 5px;
-	border-radius: 3px;
+	border-radius: 4px;
 	border: 1px solid #30363D;
 	background-color: #0D1117;
 	color: #C9D1D9;
@@ -259,7 +259,7 @@ gamesettings .control input[type=text]
 	padding: 4px;
 	background-color: #0D1117;
 	border: 1px solid #30363D;
-	border-radius: 3px;
+	border-radius: 4px;
 	color: #C9D1D9;
 }
 
@@ -314,7 +314,7 @@ gamesettings .control-numeric input[type=text]
 	margin-bottom: 5px;
 	font-size: 11px;
 	font-weight: bold;
-	border-radius: 3px;
+	border-radius: 4px;
 	color: #8B949E;
 	height: 26px;
 	cursor: pointer;
@@ -351,7 +351,7 @@ gamesettings .control-numeric input[type=text]
 {
 	float: right;
 	background-color: transparent;
-	border-radius: 3px;
+	border-radius: 4px;
 	padding: 2px 5px;
 	margin: 5px;
 	color: #58A6FF;

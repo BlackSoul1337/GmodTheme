@@ -3,18 +3,14 @@ if SERVER then
 	return
 end
 
--- Persisted to data/ by the menu HTML (the menu state runs no addon Lua).
--- The convar mirrors it so the skin and console can read it in the client
--- realm; the cookie read below is a legacy fallback for old installs.
+-- The menu HTML keeps this setting in menu-state cookies (mn.db) and mirrors
+-- changes here via RunConsoleCommand; the menu state cannot write files or
+-- call client Lua directly. The client cookie (cl.db) is the durable copy.
 if (!GetConVar("blacksoul_theme_all_gamemodes")) then
-	CreateClientConVar("blacksoul_theme_all_gamemodes", "0", false, false, "Apply the BlackSoul Derma theme to Helix and other excluded gamemodes.")
+	CreateClientConVar("blacksoul_theme_all_gamemodes", "0", true, false, "Apply the BlackSoul Derma theme to Helix and other excluded gamemodes.")
 end
 
--- The menu HTML persists the setting to data/ (visible across realms in the
--- same session); the cookie is kept as a legacy fallback.
-local themeAllGamemodes = file.Read("blacksoul_theme_all_gamemodes.txt", "DATA") or cookie.GetString("blacksoul_theme_all_gamemodes", "0")
-
-RunConsoleCommand("blacksoul_theme_all_gamemodes", themeAllGamemodes)
+RunConsoleCommand("blacksoul_theme_all_gamemodes", cookie.GetString("blacksoul_theme_all_gamemodes", "0"))
 
 -- The legacy standalone Derma package registers its hooks when its skin loads,
 -- which happens after this autorun. Remove them again once everything is loaded.

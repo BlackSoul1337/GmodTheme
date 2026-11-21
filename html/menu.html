@@ -37,6 +37,11 @@
 
 	<body ng-app="MenuApp" ng-controller="MenuController">
 
+		<!-- Preloads the server history (and internet list) at boot for the
+		     navbar quick-join panel; module-level state makes the second,
+		     visible ControllerServers instance on the servers page a no-op. -->
+		<div ng-controller="ControllerServers" style="display:none"></div>
+
 		<!-- Versioning -->
 		<div id="version" ng-click="ShowNews()" ng-show="Branch">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"></path></svg> 
@@ -48,6 +53,18 @@
 		</div>
 
 		<div id="NavBar">
+
+			<div id="RecentServers" ng-show="RecentServersLoading || RecentServers.length > 0">
+				<div class="rs-header" ng-Localize="'bs_recent_servers'"></div>
+				<div class="rs-loading" ng-show="RecentServersLoading" ng-Localize="'bs_loading'"></div>
+				<div class="server-item" ng-show="!RecentServersLoading" ng-repeat="server in RecentServers | limitTo: 3" ng-click="JoinRecentServer( server )" ng-attr-title="{{server.name}}">
+					<span class="server-name">{{server.name}}</span>
+					<div class="server-info">
+						<span class="server-map">{{server.map}}</span>
+						<span>{{server.players}}/{{server.maxplayers}}</span>
+					</div>
+				</div>
+			</div>
 
 			<!-- Back to main menu -->
 			<a href="#/" class="ui_sound_return" ng-show="ShowBack">
@@ -105,7 +122,7 @@
 			</div>
 
 			<div class="right button smallicon hidelabel theme-settings-toggle" ng-click="ToggleThemeSettings(); $event.stopPropagation();">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22"><path fill-rule="evenodd" d="M9.67 1.55a2.25 2.25 0 014.66 0l.15 1.2c.35.13.69.28 1.01.46l.96-.73a2.25 2.25 0 013.29.3l.33.34a2.25 2.25 0 01.3 3.29l-.73.96c.18.32.33.66.46 1.01l1.2.15a2.25 2.25 0 012 2.23v.48a2.25 2.25 0 01-2 2.23l-1.2.15c-.13.35-.28.69-.46 1.01l.73.96a2.25 2.25 0 01-.3 3.29l-.33.34a2.25 2.25 0 01-3.29.3l-.96-.73c-.32.18-.66.33-1.01.46l-.15 1.2a2.25 2.25 0 01-2.23 2h-.48a2.25 2.25 0 01-2.23-2l-.15-1.2a8.54 8.54 0 01-1.01-.46l-.96.73a2.25 2.25 0 01-3.29-.3l-.34-.34a2.25 2.25 0 01-.3-3.29l.73-.96a8.54 8.54 0 01-.46-1.01l-1.2-.15a2.25 2.25 0 01-2-2.23v-.48a2.25 2.25 0 012-2.23l1.2-.15c.13-.35.28-.69.46-1.01l-.73-.96a2.25 2.25 0 01.3-3.29l.34-.34a2.25 2.25 0 013.29-.3l.96.73c.32-.18.66-.33 1.01-.46l.15-1.2zM12 9a3 3 0 100 6 3 3 0 000-6z"/></svg>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path fill-rule="evenodd" d="M9.67 1.55a2.25 2.25 0 014.66 0l.15 1.2c.35.13.69.28 1.01.46l.96-.73a2.25 2.25 0 013.29.3l.33.34a2.25 2.25 0 01.3 3.29l-.73.96c.18.32.33.66.46 1.01l1.2.15a2.25 2.25 0 012 2.23v.48a2.25 2.25 0 01-2 2.23l-1.2.15c-.13.35-.28.69-.46 1.01l.73.96a2.25 2.25 0 01-.3 3.29l-.33.34a2.25 2.25 0 01-3.29.3l-.96-.73c-.32.18-.66.33-1.01.46l-.15 1.2a2.25 2.25 0 01-2.23 2h-.48a2.25 2.25 0 01-2.23-2l-.15-1.2a8.54 8.54 0 01-1.01-.46l-.96.73a2.25 2.25 0 01-3.29-.3l-.34-.34a2.25 2.25 0 01-.3-3.29l.73-.96a8.54 8.54 0 01-.46-1.01l-1.2-.15a2.25 2.25 0 01-2-2.23v-.48a2.25 2.25 0 012-2.23l1.2-.15c.13-.35.28-.69.46-1.01l-.73-.96a2.25 2.25 0 01.3-3.29l.34-.34a2.25 2.25 0 013.29-.3l.96.73c.32-.18.66-.33 1.01-.46l.15-1.2zM12 9a3 3 0 100 6 3 3 0 000-6z"/></svg>
 			</div>
 		</div>
 

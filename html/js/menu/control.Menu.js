@@ -66,8 +66,9 @@ function MenuController( $scope, $rootScope )
 		$scope.UIScale = ClampUIScale( value );
 		$scope.ApplyUIScale();
 
-		// Persist to data/ immediately (survives unclean shutdowns).
-		lua.Run( 'file.Write( "blacksoul_menu_ui_scale.txt", %s )', String( $scope.UIScale ) );
+		// Menu-state cookies commit to mn.db within ~0.1s; file.Write is
+		// sandboxed read-only in the menu state.
+		lua.Run( 'cookie.Set( "blacksoul_menu_ui_scale", %s )', String( $scope.UIScale ) );
 	}
 
 	$scope.ChangeUIScale = function( delta )
@@ -104,24 +105,64 @@ function MenuController( $scope, $rootScope )
 		}
 	}
 
-	// Settings persist to data/ via file.Write (visible to the client realm in
-	// the same session); the value is pulled back through the menu panel.
+	// Cookies (mn.db) keep the menu UI state across restarts. The concommand
+	// mirrors the scope toggle into the client realm, which owns the convar.
 	$scope.SetThemeAllGamemodes = function()
 	{
-		lua.Run( 'file.Write( "blacksoul_theme_all_gamemodes.txt", %s )', $scope.ThemeAllGamemodes ? "1" : "0" );
+		var value = $scope.ThemeAllGamemodes ? "1" : "0";
+		lua.Run( 'cookie.Set( "blacksoul_theme_all_gamemodes", %s )', value );
+		lua.Run( 'RunConsoleCommand( "blacksoul_theme_all_gamemodes", %s )', value );
 	}
 
 	$scope.SetHideProblems = function()
 	{
-		lua.Run( 'file.Write( "blacksoul_hide_problems.txt", %s )', $scope.HideProblems ? "1" : "0" );
+		lua.Run( 'cookie.Set( "blacksoul_hide_problems", %s )', $scope.HideProblems ? "1" : "0" );
+	}
+
+	$scope.RecentServers = [];
+	$scope.RecentServersLoading = true;
+
+	$scope.UpdateRecentServers = function()
+	{
+		if ( !ServerTypes['history'] || !ServerTypes['history'].gamemodes )
+		{
+			$scope.RecentServers = [];
+			$scope.RecentServersLoading = true;
+			return;
+		}
+
+		var allServers = [];
+		for ( var gmName in ServerTypes['history'].gamemodes )
+		{
+			var gm = ServerTypes['history'].gamemodes[ gmName ];
+			if ( gm.servers && gm.servers.length > 0 )
+				allServers = allServers.concat( gm.servers );
+		}
+
+		allServers.sort( function( a, b ) { return ( b.lastplayed || 0 ) - ( a.lastplayed || 0 ); } );
+
+		$scope.RecentServers = allServers.slice( 0, 5 );
+		$scope.RecentServersLoading = false;
+		UpdateDigest( $scope, 50 );
+	}
+
+	$scope.JoinRecentServer = function( server )
+	{
+		clearInterval( UpdateInterval );
+
+		if ( server.password )
+			lua.Run( "RunConsoleCommand( \"password\", %s )", server.password );
+
+		lua.Run( "JoinServer( %s )", server.address );
 	}
 
 	setTimeout( function()
 	{
 		$scope.ApplyUIScale();
-		lua.Run( 'pnlMainMenu:Call( "UpdateUIScale( " .. ( file.Read( "blacksoul_menu_ui_scale.txt", "DATA" ) or cookie.GetString( "blacksoul_menu_ui_scale", "1" ) ) .. " )" )' );
-		lua.Run( 'pnlMainMenu:Call( "UpdateThemeAllGamemodes( " .. tostring( ( file.Read( "blacksoul_theme_all_gamemodes.txt", "DATA" ) or cookie.GetString( "blacksoul_theme_all_gamemodes", "0" ) ) == "1" ) .. " )" )' );
-		lua.Run( 'pnlMainMenu:Call( "UpdateHideProblems( " .. tostring( ( file.Read( "blacksoul_hide_problems.txt", "DATA" ) or "0" ) == "1" ) .. " )" )' );
+		lua.Run( 'pnlMainMenu:Call( "UpdateUIScale( " .. cookie.GetString( "blacksoul_menu_ui_scale", "1" ) .. " )" )' );
+		lua.Run( 'pnlMainMenu:Call( "UpdateThemeAllGamemodes( " .. tostring( cookie.GetString( "blacksoul_theme_all_gamemodes", "0" ) == "1" ) .. " )" )' );
+		lua.Run( 'pnlMainMenu:Call( "UpdateHideProblems( " .. tostring( cookie.GetString( "blacksoul_hide_problems", "0" ) == "1" ) .. " )" )' );
+		PreloadHistoryAtBoot();
 	}, 0 );
 
 	$scope.ToggleGamemodes = function()
@@ -404,8 +445,8 @@ function SetProblemCount( num, severity )
 	UpdateDigest( gScope, 100 );
 }
 
-// Pulled from data/ via Lua (pnlMainMenu:Call) so the persisted setting is the
-// single source of truth for the checkbox state.
+// Pulled from the menu cookie store via Lua (pnlMainMenu:Call) so the persisted
+// setting is the single source of truth for the checkbox state.
 function UpdateThemeAllGamemodes( bEnabled )
 {
 	gScope.ThemeAllGamemodes = bEnabled == true || bEnabled == "true";
@@ -418,8 +459,8 @@ function UpdateHideProblems( bEnabled )
 	UpdateDigest( gScope, 50 );
 }
 
-// Pulled from data/ via Lua (pnlMainMenu:Call) so the saved scale survives
-// restarts even when the menu browser keeps no localStorage.
+// Pulled from the menu cookie store via Lua (pnlMainMenu:Call) so the saved
+// scale survives restarts even when the menu browser keeps no localStorage.
 function UpdateUIScale( value )
 {
 	gScope.UIScale = ClampUIScale( value );
@@ -439,6 +480,7 @@ var gmodInteractiveSoundSelector = [
 	".gitpopup li",
 	".gamemode",
 	".serverlist .server",
+	"#RecentServers .server-item",
 	".serverinfo button",
 	".bglink",
 	".installgamemode",

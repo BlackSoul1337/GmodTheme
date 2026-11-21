@@ -10,7 +10,7 @@ workshopicon
 	background-color: #21262D;
 	background-position: center;
 	-webkit-box-shadow: 0px 0px 1px 1px rgba( 0, 0, 0, 0.3 );
-	border-radius: 3px;
+	border-radius: 4px;
 	border: 3px solid #30363D;
 	-webkit-transition: border-color 0.12s ease, -webkit-transform 0.12s ease, box-shadow 0.12s ease;
 }
@@ -239,7 +239,7 @@ controls control
 	border: 1px solid #30363D;
 	color: #C9D1D9;
 	padding: 2px 4px;
-	border-radius: 2px;
+	border-radius: 4px;
 	cursor: pointer;
 	height: 15px;
 	-webkit-box-shadow: 1px 1px 2px black;
@@ -390,7 +390,7 @@ controls control.disabled
 	display: block;
 	background-color: #0D1117;
 	border: 1px solid #30363D;
-	border-radius: 3px;
+	border-radius: 4px;
 	color: #C9D1D9;
 }
 .preset_list
@@ -456,7 +456,7 @@ pagination .back, pagination .next
 	height: 36px;
 	background-color: #21262D;
 	border: 1px solid #30363D;
-	border-radius: 3px;
+	border-radius: 4px;
 	box-sizing: border-box;
 	/* The stock textures sit high and off-center inside their canvas */
 	background-position: calc( 50% - 3px ) calc( 50% + 6px );

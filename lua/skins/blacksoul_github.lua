@@ -192,6 +192,8 @@ hook.Add("InitPostEntity", "BlackSoul.Github.RestoreExcludedFonts", function()
 end)
 
 cvars.AddChangeCallback("blacksoul_theme_all_gamemodes", function(_, _, value)
+	cookie.Set("blacksoul_theme_all_gamemodes", value)
+
 	if (tonumber(value) != 0) then
 		ApplyThemeFonts()
 	else

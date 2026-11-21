@@ -80,7 +80,7 @@ DIV.page DIV.options .search_bar
 	background-color: #0D1117;
 	color: #C9D1D9;
 	border: 1px solid #30363D;
-	border-radius: 3px;
+	border-radius: 4px;
 }
 
 div.ugc_content
@@ -296,7 +296,7 @@ input.preset_name
 	padding: 3px 5px;
 	background-color: #0D1117;
 	border: 1px solid #30363D;
-	border-radius: 3px;
+	border-radius: 4px;
 	color: #C9D1D9;
 }
 

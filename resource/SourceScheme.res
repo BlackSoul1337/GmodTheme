@@ -114,7 +114,7 @@ Scheme
 		SectionedListPanel.OutOfFocusSelectedBgColor     "20 24 30 255"
 
 		// Property sheet tabs.
-		PropertySheet.TextColor                          "107 114 125 255"
+		PropertySheet.TextColor                          "139 148 158 255"
 		PropertySheet.SelectedTextColor                  "White"
 		PropertySheet.SelectedBgColor                    "0 0 0 0"
 		PropertySheet.TransitionEffectTime               "0.15"
@@ -287,6 +287,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"16"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"antialias"     "1"
 			}
 		}
@@ -298,6 +299,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"18"
 				"weight"	"700"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"antialias"     "1"
 			}
 		}
@@ -309,6 +311,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"16"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"underline" "1"
 				"antialias"     "1"
 			}
@@ -323,6 +326,7 @@ Scheme
 				"tall"		"14" [$OSX]
 				"tall"		"16" [$LINUX]
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"antialias"     "1"
 			}
 		}
@@ -334,6 +338,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"13"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"dropshadow" "1"
 				"antialias"     "1"
 			}
@@ -346,6 +351,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"12"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"antialias"     "1"
 			}
 		}
@@ -358,6 +364,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"18"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"antialias"     "1"
 			}
 		}
@@ -369,6 +376,7 @@ Scheme
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"18"
 				"weight"	"700"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"antialias"     "1"
 			}
 			"1"	[$X360]
@@ -376,6 +384,7 @@ Scheme
 				"name"		"Segoe UI"
 				"tall"		"24"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"outline"	"1"
 				"antialias"     "1"
 			}
@@ -388,6 +397,7 @@ Scheme
 				"tall"			"20"
 				"tall_hidef"	"28"
 				"weight"		"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"outline"		"1"
 				"antialias"     "1"
 			}
@@ -400,6 +410,7 @@ Scheme
 				"tall"			"20"
 				"tall_hidef"	"28"
 				"weight"		"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"blur"			"3"
 				"blur_hidef"	"5"
 				"antialias"     "1"
@@ -650,6 +661,7 @@ Scheme
 				"name"		"Verdana" [$POSIX]
 				"tall"		"16"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 			}
 		}
 		"CloseCaption_Italic"
@@ -659,6 +671,7 @@ Scheme
 				"name"		"Segoe UI"
 				"tall"		"16"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"italic"	"1"
 			}
 		}
@@ -670,6 +683,7 @@ Scheme
 				"name"		"Verdana Bold" [$POSIX]
 				"tall"		"16"
 				"weight"	"900"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 			}
 		}
 		"CloseCaption_BoldItalic"
@@ -680,6 +694,7 @@ Scheme
 				"name"		"Verdana Bold Italic" [$POSIX]
 				"tall"		"16"
 				"weight"	"900"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"italic"	"1"
 			}
 		}
@@ -741,6 +756,7 @@ Scheme
 				"name"		"Segoe UI" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"2000"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"tall"			"20"
 				"antialias"		"1"
 			}
@@ -753,6 +769,7 @@ Scheme
 				"name"		"Segoe UI" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"2000"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"tall"			"18"
 				"antialias"		"1"
 			}
@@ -765,6 +782,7 @@ Scheme
 				"name"		"Segoe UI" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"tall"			"16" [!$POSIX]
 				"tall"			"18" [$POSIX]
 				"antialias"		"1"
@@ -778,6 +796,7 @@ Scheme
 				"name"		"Segoe UI" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"tall"			"16"
 				"antialias"		"1"
 			}
@@ -791,6 +810,7 @@ Scheme
 				"name"		"Segoe UI" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"tall"			"14" [!$POSIX]
 				"tall"			"16" [$POSIX]
 				"antialias"		"1"
@@ -804,6 +824,7 @@ Scheme
 				"name"		"Segoe UI" [!$POSIX]
 				"name"		"Verdana Bold" [$POSIX]
 				"weight"		"1500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"tall"			"18" [!$POSIX]
 				"tall"			"19" [$POSIX]
 				"antialias"		"1"
@@ -817,6 +838,7 @@ Scheme
 				"name"		"Segoe UI" [!$POSIX]
 				"name"		"Verdana" [$POSIX]
 				"weight"		"1000"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"tall"			"14" [!$POSIX]
 				"tall"			"15" [$POSIX]
 				"antialias"		"1"
@@ -833,6 +855,7 @@ Scheme
 				"tall"		"35"
 				"tall_lodef"	"40"
 				"weight"	"500"
+				"range"		"0x0000 0x052F" // Basic Latin, Latin Extended, Cyrillic
 				"additive"	"0"
 				"antialias" "1"
 			}
