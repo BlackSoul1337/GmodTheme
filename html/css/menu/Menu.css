@@ -1,8 +1,14 @@
 
+HTML
+{
+	height: 100%;
+}
+
 BODY
 {
 	overflow: hidden;
-	background-color: transparent;
+	height: 100%;
+	background-color: rgba( 13, 17, 23, 0.55 );
 	font-family: 'Segoe UI', 'Mona-Sans', Arial, sans-serif;
 	font-weight: 600;
 	-webkit-user-select: none;
@@ -74,19 +80,7 @@ DIV.page
 	top: 0px;
 	bottom: 50px;
 	overflow: hidden;
-	background: rgba( 13, 17, 23, 0.42 );
-}
-
-DIV.page:before
-{
-	content: "";
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background: rgba( 13, 17, 23, 0.24 );
-	pointer-events: none;
+	background: transparent;
 }
 
 UL.category

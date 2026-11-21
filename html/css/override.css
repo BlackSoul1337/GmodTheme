@@ -309,8 +309,7 @@ input[type=checkbox]:disabled + label::before {
 .ugc_settings input[type=radio],
 .centermessage input[type=checkbox],
 .centermessage input[type=radio],
-.theme-settings input[type=checkbox],
-workshopicon input[type=checkbox]
+.theme-settings input[type=checkbox]
 {
 	-webkit-appearance: none;
 	background: #0D1117;
@@ -342,8 +341,7 @@ workshopicon input[type=checkbox]
 .ugc_settings input[type=radio]:checked,
 .centermessage input[type=checkbox]:checked,
 .centermessage input[type=radio]:checked,
-.theme-settings input[type=checkbox]:checked,
-workshopicon input[type=checkbox]:checked
+.theme-settings input[type=checkbox]:checked
 {
 	background: #1F6FEB;
 	border-color: #58A6FF;
@@ -351,8 +349,7 @@ workshopicon input[type=checkbox]:checked
 
 .ugc_settings input[type=checkbox]:checked:after,
 .centermessage input[type=checkbox]:checked:after,
-.theme-settings input[type=checkbox]:checked:after,
-workshopicon input[type=checkbox]:checked:after
+.theme-settings input[type=checkbox]:checked:after
 {
 	content: '\2713';
 	color: #FFFFFF;
