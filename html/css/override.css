@@ -121,7 +121,7 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -16px 0 0 -16px;
+	margin: -14px 0 0 -14px;
 }
 
 /* Stroke-based line icons (gear, gamepad) match the outline octicons; the
@@ -214,13 +214,13 @@
 .theme-settings-note {
 	color: #8B949E;
 	font-size: 11px;
-	margin-top: 6px;
+	margin-top: 4px;
 }
 
 .theme-recent {
-	margin-top: 8px;
+	margin-top: 4px;
 	border-top: 1px solid #30363D;
-	padding-top: 8px;
+	padding-top: 6px;
 }
 
 .theme-recent-title {

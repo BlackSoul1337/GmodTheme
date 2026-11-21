@@ -887,9 +887,9 @@ name .favbutton:hover
 }
 name .favbutton.favorited
 {
-	background: url( '../../img/favourite.png' );
+	background: url( '../../img/favourite.png?2' );
 }
 name .favbutton.favorited:hover
 {
-	background: url( '../../img/favourite_remove.png' );
+	background: url( '../../img/favourite_remove.png?2' );
 }

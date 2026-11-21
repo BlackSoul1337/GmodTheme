@@ -31,6 +31,11 @@ function MenuController( $scope, $rootScope )
 
 	gScope.Gamemode = "";
 
+	// The navbar popups ng-repeat these through filters at boot; without an
+	// initial array Angular logs [filter:notarray] until Lua fills them.
+	$scope.Gamemodes = [];
+	$scope.Games = [];
+
 	// The dim overlay lives on <html>, outside the zoomed body: body zoom
 	// scales fixed-position descendants and would leave undimmed strips.
 	$rootScope.$on( "$viewContentLoaded", function()

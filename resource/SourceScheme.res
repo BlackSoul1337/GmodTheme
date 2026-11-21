@@ -506,11 +506,11 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Source Code Pro Semibold" [$WINDOWS]
-				"name"		"Source Code Pro Semibold" [!$WINDOWS]
+				"name"		"Source Code Pro Medium" [$WINDOWS]
+				"name"		"Source Code Pro Medium" [!$WINDOWS]
 				"tall"		"20" [$WINDOWS]
 				"tall"		"25" [!$WINDOWS]
-				"weight"	"600"
+				"weight"	"500"
 				"antialias" "1"
 			}
 		}
@@ -1287,7 +1287,7 @@ Scheme
 		"1"		"resource/HALFLIFE2.ttf"
 		"2"		"resource/HL2EP2.ttf"
 		"3"		"resource/marlett.ttf"
-		// Static Semibold instance: the variable font registers as "Source Code Pro ExtraLight" and VGUI cannot pick fvar instances; Regular read too thin in the console.
-		"4"     "resource/fonts/SourceCodePro-Semibold.ttf"
+		// Static Medium instance: the variable font registers as "Source Code Pro ExtraLight" and VGUI cannot pick fvar instances; Regular read thin, Semibold too heavy.
+		"4"     "resource/fonts/SourceCodePro-Medium.ttf"
 	}
 }
