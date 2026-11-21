@@ -286,7 +286,7 @@ Scheme
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"16"
-				"weight"	"500"
+				"weight"	"600"
 				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
@@ -297,8 +297,8 @@ Scheme
 			{
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
-				"tall"		"16"
-				"weight"	"1000"
+				"tall"		"18"
+				"weight"	"700"
 				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
@@ -310,7 +310,7 @@ Scheme
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"16"
-				"weight"	"500"
+				"weight"	"600"
 				"underline" "1"
 				"range"		"0x0000 0x052F"
 				"antialias"     "1"
@@ -363,7 +363,7 @@ Scheme
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
 				"tall"		"18"
-				"weight"	"500"
+				"weight"	"600"
 				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
@@ -374,8 +374,8 @@ Scheme
 			{
 				"name"		"Segoe UI" [$WINDOWS]
 				"name"		"Segoe UI" [!$WINDOWS]
-				"tall"		"12"
-				"weight"	"1000"
+				"tall"		"18"
+				"weight"	"700"
 				"range"		"0x0000 0x052F"
 				"antialias"     "1"
 			}
@@ -503,11 +503,12 @@ Scheme
 		{
 			"1"
 			{
-				"name"		"Lucida Console" [$WINDOWS]
-				"name"		"Verdana" [!$WINDOWS]
-				"tall"		"10" [$WINDOWS]
-				"tall"		"14" [!$WINDOWS]
+				"name"		"Source Code Pro" [$WINDOWS]
+				"name"		"Source Code Pro" [!$WINDOWS]
+				"tall"		"20" [$WINDOWS]
+				"tall"		"25" [!$WINDOWS]
 				"weight"	"500"
+				"antialias" "1"
 			}
 		}
 
@@ -1271,6 +1272,7 @@ Scheme
 		"1"		"resource/HALFLIFE2.ttf"
 		"2"		"resource/HL2EP2.ttf"
 		"3"		"resource/marlett.ttf"
-		"4"     "resource/Mona-Sans.ttf"
+		"4"     "resource/SourceCodePro-VariableFont_wght.ttf"
+		"5"     "resource/Mona-Sans.ttf"
 	}
 }
