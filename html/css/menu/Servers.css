@@ -873,25 +873,21 @@ input[type=number]::-webkit-inner-spin-button
 
 name .favbutton
 {
-	background: url( '../../img/notfavourite.png' );
+	/* Inline SVG instead of the stock dark PNG: guaranteed light on dark,
+	   no dependency on CSS filter support in the menu CEF. */
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(139,148,158)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z'/></svg>") center / contain no-repeat;
 	margin-right: 4px;
 	height: 16px;
 	width: 16px;
 	display: inline-block;
-	/* Stock glyph is dark for the light theme; force a light gray on dark.
-	   The menu CEF is old Chromium: unprefixed filter is ignored there. */
-	-webkit-filter: brightness( 0 ) invert( 0.8 );
-	filter: brightness( 0 ) invert( 0.8 );
 }
 name .favbutton:hover
 {
-	background: url( '../../img/notfavourite_add.png' );
+	background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='rgb(201,209,217)' stroke='rgb(201,209,217)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z'/></svg>") center / contain no-repeat;
 }
 name .favbutton.favorited
 {
 	background: url( '../../img/favourite.png' );
-	-webkit-filter: none;
-	filter: none;
 }
 name .favbutton.favorited:hover
 {
